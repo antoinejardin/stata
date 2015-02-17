@@ -30,3 +30,85 @@ help carryforward
 carryforward  fluxfix, replace
 
 bysort  fluxbrut : gen sc_mobile =  (fluxpond /  fluxfix) * 100
+
+bysort fluxbrut : egen spond = total (ipondi)
+
+bysort fluxbrut : gen idflux = _N
+
+gen fluxpond = spond * idflux
+
+
+
+###
+
+fluxbrut : trajet des flux (bruts)
+
+spond : total des pondérations par flux
+
+idflux : indicateur du nombre de flux recensés avant pondération
+
+fluxpond : flux pondérés avec les indicateurs INSEE
+
+gen fluxfix = spond * idfl if  commune ==  dclt
+
+ssc install carryforward
+
+help carryforward
+
+carryforward  fluxfix, replace
+
+bysort  fluxbrut : gen sc_mobile =  (fluxpond /  fluxfix) * 100
+
+
++++++++++++++++++++++++++++++++++++++
+
+Autre
+
+use "/Users/antoinejardinantoine/Desktop/modpro.dta"
+
+## Indicateur de flux par niveau de pondération
+
+egen pondflux = concat(fluxbrut ipondi), punct(_)
+
+## Nombre de flux par niveau de pondération
+
+bysort  pondflux : gen nbflux_1 = _N
+
+## Nombre agrégé de flux * pondération
+
+bysort  pondflux : gen nbflux_2 =  nbflux_1 *  ipondi
+
+## Nombre agrégé de flux * pondération en situation fixe
+
+bysort  pondflux : gen nbflux_3 =  nbflux_1 *  ipondi if  commune ==  dclt
+
+sort  pondflux
+
+## Cylindrage 
+
+carryforward nbflux_3, gen (nbflux4)
+
+## Nombre agrégé de flux * pondération en situation mobile
+
+bysort  pondflux : gen nbflux_5 =  nbflux_1 *  ipondi if  commune != dclt
+
+## Cylindrage
+
+carryforward nbflux_5, gen (nbflux6)
+
+## Total des flus pondérés fixes et mobiles
+
+bysort  pondflux : gen nbflux_7 = nbflux4 +  nbflux6
+
+## On renomme
+
+ren nbflux_7 totflux
+
+## % Fixes, mobiles, individuels par niveau de pondération
+
+gen pmov = nbflux6 / totflux
+gen pfix = nbflux4 / totflux
+gen pindiv = nbflux_2 / totflux
+
+## Contrôle (=1)
+gen control = pmov + pfix
