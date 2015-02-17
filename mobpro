@@ -1,0 +1,32 @@
+## Identificationd des flux bruts et pondération
+
+bysort fluxbrut : egen spond = total (ipondi)
+
+bysort fluxbrut : gen idflux = _N
+
+gen fluxpond = spond * idflux
+
+
+
+### Description
+
+fluxbrut : trajet des flux (bruts)
+
+spond : total des pondérations par flux
+
+idflux : indicateur du nombre de flux recensés avant pondération
+
+fluxpond : flux pondérés avec les indicateurs INSEE
+
+
+## Etape 2 : calcul du taux de mobilité
+
+gen fluxfix = spond * idfl if  commune ==  dclt
+
+ssc install carryforward
+
+help carryforward
+
+carryforward  fluxfix, replace
+
+bysort  fluxbrut : gen sc_mobile =  (fluxpond /  fluxfix) * 100
