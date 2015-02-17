@@ -1,0 +1,23 @@
+use "/Users/antoinejardinantoine/Desktop/geocod.dta"
+
+ren  x_centroid x_orig
+ren y_centroid  y_orig
+ren  z_moyen z_orig
+drop dclt
+
+save "/Users/antoinejardinantoine/Desktop/orig.dta"
+
+ren  x_orig x_arriv
+ren  y_orig y_arriv
+ren  z_orig z_arriv
+ren  commune dclt
+drop  insee_com
+
+save "/Users/antoinejardinantoine/Desktop/arriv.dta"
+
+clear
+
+use "/Users/antoinejardinantoine/Desktop/modpro3.dta"
+
+merge m:m commune using "/Users/antoinejardinantoine/Desktop/orig.dta", generate(_orig)
+merge m:m dclt using "/Users/antoinejardinantoine/Desktop/arriv.dta", generate(_arriv)
