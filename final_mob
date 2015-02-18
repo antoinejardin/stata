@@ -57,3 +57,19 @@ drop if arriv_x ==.
 
 save "C:\Users\Antoine\Desktop\MOB\MPRO_CLEAN.dta"
 
+
+gen compteur = 1
+
+save "C:\Users\Antoine\Desktop\MOB\MPRO_CLEAN.dta", replace
+
+collapse (sum) compteur , by (geom)
+
+export delimited using "C:\Users\Antoine\Desktop\MOB\geom_flux.csv", replace
+
+use "C:\Users\Antoine\Desktop\MOB\MPRO_CLEAN.dta", replace
+
+destring pond, gen (numpond)
+
+save "C:\Users\Antoine\Desktop\MOB\MPRO_CLEAN.dta", replace
+
+
