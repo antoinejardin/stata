@@ -1,0 +1,47 @@
+
+
+
+### CODAGE
+
+replace commune = arm if arm != "ZZZZZ"
+
+### FLUX
+
+egen flux = concat(commune dclt), punct(_)
+
+### PONDERATION
+
+split ipondi, parse(,)
+
+egen pond  = concat (ipondi1 ipondi2), punct(.)
+
+### LINESTRING
+
+gen g1 = "LINESTRING ("
+gen g2 = ","
+gen g3 = ")"
+gen s1 = " "
+
+### FUSION GEOGRAPHIQUE
+
+merge m:m commune using "C:\Users\Antoine\Desktop\MOB\ORIG.dta", generate(_orig)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                       210,728
+        from master                   210,667  (_orig==1)
+        from using                         61  (_orig==2)
+
+    matched                         8,245,240  (_orig==3)
+    -----------------------------------------
+
+merge m:m dclt  using "C:\Users\Antoine\Desktop\MOB\ARRIV.dta", generate(_arriv)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                       316,240
+        from master                   315,695  (_arriv==1)
+        from using                        545  (_arriv==2)
+
+    matched                         8,140,273  (_arriv==3)
+    -----------------------------------------
