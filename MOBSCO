@@ -1,0 +1,49 @@
+use "C:\Users\Antoine\Desktop\MOB\MOBSCO.dta", clear
+
+## Arrondissements
+
+list commune if arm != "ZZZZZ"
+replace commune = arm if arm != "ZZZZZ"
+
+## Flux
+
+egen flux = concat(commune dcetuf ), punct(_)
+
+## Pondérations
+
+split ipondi, parse(,)
+egen pond = concat (ipondi1 ipondi2), punct(.)
+
+destring pond, gen (pond2) force
+
+## Codage géographique des flux
+
+gen g1 = "LINESTRING ("
+gen g2 = ","
+gen g3 = ")"
+gen s1 = " "
+
+merge m:m commune using "C:\Users\Antoine\Desktop\MOB\ORIG.dta", generate(_orig)
+merge m:m dcetuf using "C:\Users\Antoine\Desktop\MOB\ARRIV.dta", generate(_arriv)
+
+egen geom = concat ( g1 orig_x s1 orig_y g2 arriv_x s1 arriv_y g3)
+
+## Sauvegarde fichier brut
+
+save "C:\Users\Antoine\Desktop\MOB\MSCO_BRUT.dta"
+
+## Nettoyage des valeurs manquantes
+
+drop if orig_x ==.
+drop if arriv_x ==.
+
+## Sauvegarde fichier propre
+
+save "C:\Users\Antoine\Desktop\MOB\MSCO_CLEAN.dta"
+
+## Compteur pour calcul de l'intensité des flux
+
+gen compteur = 1
+save "C:\Users\Antoine\Desktop\MOB\MSCO_CLEAN.dta", replace
+
+
