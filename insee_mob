@@ -1,0 +1,13 @@
+mapflux
+
+use "/Users/antoinejardinantoine/Desktop/flux_filtre.dta"
+
+gen g1 = "LINESTRING ("
+gen g2 = ","
+gen g3 = ")"
+
+gen s1 = " "
+
+egen geom = concat ( g1   x_orig s1 y_orig g2  x_arriv s1 y_arriv g3) 
+
+list geom
