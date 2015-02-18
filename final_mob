@@ -1,6 +1,8 @@
 
 
 
+
+
 ### CODAGE
 
 replace commune = arm if arm != "ZZZZZ"
@@ -45,3 +47,8 @@ merge m:m dclt  using "C:\Users\Antoine\Desktop\MOB\ARRIV.dta", generate(_arriv)
 
     matched                         8,140,273  (_arriv==3)
     -----------------------------------------
+
+	
+### Génération de la géométrie
+
+egen geom = concat ( g1 orig_x s1 orig_y g2 arriv_x s1 arriv_y g3)
