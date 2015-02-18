@@ -3,3 +3,8 @@
 foreach x of varlist ( geofla-labreg) {
 ren `x' orig_`x'
 }
+
+
+foreach x of varlist ( geofla-labreg) {
+ren `x' arriv_`x'
+}
