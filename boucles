@@ -1,0 +1,5 @@
+## Rename
+
+foreach x of varlist ( geofla-labreg) {
+ren `x' orig_`x'
+}
