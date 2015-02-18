@@ -1,0 +1,26 @@
+
+## Export générique (pondéré)
+
+collapse (sum) compteur [w=pond2] , by (geom)
+
+export delimited using "C:\Users\Antoine\Desktop\MOB\flux_sco.csv", replace
+
+## Recharge du fichier source
+
+use "C:\Users\Antoine\Desktop\MOB\MSCO_CLEAN.dta", replace
+
+## Export spécifique (Age == 15)
+
+collapse (sum) compteur [w=pond2] if agerev10 == 15 , by (geom)
+
+export delimited using "C:\Users\Antoine\Desktop\MOB\fsco_lyc.csv", replace
+
+## Export des flux des lycéens selon CS
+
+use "C:\Users\Antoine\Desktop\MOB\MSCO_CLEAN.dta", replace
+
+collapse (sum) compteur [w=pond2] if agerev10 == 15 , by (geom csm)
+
+## On peut ensuite importer le .csv sous QGIS ou R
+## La géométrie des flux est donnée par la variable "geom"
+## Le compteur indique l'intensité des flux (en tenant compte des pondérations INSEE)
