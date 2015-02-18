@@ -1,0 +1,17 @@
+use "C:\Users\Antoine\Desktop\MOB\ARRIV.dta"
+
+ren orig_geofla arriv_geofla
+ren orig_com arriv_com
+ren orig_labcom arriv_labcom
+ren orig_statut arriv_statut
+ren orig_x arriv_x
+ren orig_y arriv_y
+ren orig_z arriv_z
+ren orig_surface arriv_surface
+ren orig_population arriv_population
+ren orig_canton arriv_canton
+ren orig_arrond arriv_arrond
+ren orig_dep arriv_dep
+ren orig_labdep arriv_labdep
+ren orig_reg arriv_reg
+ren orig_labreg arriv_labreg
