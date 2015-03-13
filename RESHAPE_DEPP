@@ -129,3 +129,11 @@ sc rx2 rx1 || sc ry2 ry1 || sc rw2 rw1 || sc  rz2 rz1
 twoway pcarrow rx2  rz2 rx1 rz1 if numetab=="0931585T"
 twoway pcarrow rx2  rz2 rx1 rz1 if numetab=="0931585T" &  session==1997 | session ==2014
 twoway pcarrow rx2  rz2 rx1 rz1 if numetab=="0931585T" &  session==1997
+
+
+
+sort session
+twoway line s1 s2 s3 s4 s5 s6 s7 s8 s9 session  if numetab=="0930974D"
+twoway line s1 s2 s3 s4 s5 s6 s7 s8 s9 session  if numetab=="0932026X"
+twoway line s1 s2 s3 s4 s5 s6 s7 s8 s9 session  if numetab=="0930118Y"
+
