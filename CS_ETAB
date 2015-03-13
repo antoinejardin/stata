@@ -1,0 +1,59 @@
+use "C:\Users\Antoine\stotal.dta", clear
+
+
+use "C:\Users\Antoine\stotal.dta", clear
+
+expand inscrits
+gen num = 1
+
+collapse (sum) num , by( patronyme pcs numetab session)
+
+bysort numetab session : egen pop = total(num)
+
+gen score = num / pop
+
+save "C:\Users\Antoine\Desktop\depp2.dta"
+separate numetab, by(session)
+
+save "C:\Users\Antoine\Desktop\depp2.dta", replace
+
+keep if numetab1997 !=""
+
+duplicates list numetab1997
+drop num
+
+reshape wide score, i(numetab1997) j(pcs)
+
+gen s1 = score10
+egen s2 = rowtotal( score20-score23)
+egen s3 = rowtotal( score30-score38)
+egen s4 = rowtotal( score40-score48)
+egen s5 = rowtotal( score50-score56)
+egen s6 = rowtotal( score60-score69)
+egen s7 = rowtotal( score70-score76)
+egen s8 = rowtotal( score80-score82)
+egen s9 = rowtotal( score99)
+
+egen verif = rowtotal( s1-s9)
+
+list verif
+
+replace s1 = 0 if s1 == .
+replace s2 = 0 if s2 == .
+replace s3 = 0 if s3 == .
+replace s4 = 0 if s4 == .
+replace s5 = 0 if s5 == .
+replace s6 = 0 if s6 == .
+replace s7 = 0 if s7 == .
+replace s8 = 0 if s8 == .
+replace s9 = 0 if s9 == .
+
+pca s1 s2 s3 s4 s5 s6 s7 s8 s9 [w=pop]
+
+predict bx1 bx2
+
+sc bx2 bx1 [w= pop], ms(oh) msize(small)
+
+pca s1 s2 s3 s4 s5 s6 s7 s8 s9 [w=pop]
+loadingplot
+
