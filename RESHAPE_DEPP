@@ -82,3 +82,50 @@ replace score82 = 0  if score82 == .
 replace score99 = 0  if score99 == .
 
 save "C:\Users\Antoine\Desktop\reshaped_depp.dta"
+
+
+factor score10 score20 score21 score22 score23 score30 score31 score33 score34 score35 score37 score38 score40 score42 score43 score44 score45 score46 score47 score48 score50 score52 score53 score54 score55 score56 score60 score61 score66 score69 score70 score71 score72 score73 score76 score80 score81 score82 score99 [w=pop]
+
+loadingplot, mlabsize(tiny)
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 [w=pop]
+
+loadingplot, mlabsize(tiny)
+
+tab session
+
+bysort session : factor score10 score20 score21 score22 score23 score30 score31 score33 score34 score35 score37 score38 score40 score42 score43 score44 score45 score46 score47 score48 score50 score52 score53 score54 score55 score56 score60 score61 score66 score69 score70 score71 score72 score73 score76 score80 score81 score82 score99 [w=pop]
+factor score10 score20 score21 score22 score23 score30 score31 score33 score34 score35 score37 score38 score40 score42 score43 score44 score45 score46 score47 score48 score50 score52 score53 score54 score55 score56 score60 score61 score66 score69 score70 score71 score72 score73 score76 score80 score81 score82 score99 [w=pop] if session==1997
+
+loadingplot
+
+predict a1 a2
+
+factor score10 score20 score21 score22 score23 score30 score31 score33 score34 score35 score37 score38 score40 score42 score43 score44 score45 score46 score47 score48 score50 score52 score53 score54 score55 score56 score60 score61 score66 score69 score70 score71 score72 score73 score76 score80 score81 score82 score99 [w=pop] if session==2003
+factor score10 score20 score21 score22 score23 score30 score31 score33 score34 score35 score37 score38 score40 score42 score43 score44 score45 score46 score47 score48 score50 score52 score53 score54 score55 score56 score60 score61 score66 score69 score70 score71 score72 score73 score76 score80 score81 score82 score99 [w=pop] if session==2004
+factor score10 score20 score21 score22 score23 score30 score31 score33 score34 score35 score37 score38 score40 score42 score43 score44 score45 score46 score47 score48 score50 score52 score53 score54 score55 score56 score60 score61 score66 score69 score70 score71 score72 score73 score76 score80 score81 score82 score99 [w=pop] if session==2010
+factor score10 score20 score21 score22 score23 score30 score31 score33 score34 score35 score37 score38 score40 score42 score43 score44 score45 score46 score47 score48 score50 score52 score53 score54 score55 score56 score60 score61 score66 score69 score70 score71 score72 score73 score76 score80 score81 score82 score99 [w=pop] if session==2014
+
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 [w=pop] if session==1997
+rotate
+predict rx1 rx2
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 [w=pop] if session==2001
+rotate
+predict ry1 ry2
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 [w=pop] if session==2010
+rotate
+predict rw1 rw2
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 [w=pop] if session==2014
+rotate
+predict rz1 rz2
+
+sc rx2 rx1 || sc ry2 ry1 || sc rw2 rw1 || sc  rz2 rz1
+
+
+twoway pcarrow rx2  rz2 rx1 rz1 if numetab=="0931585T"
+twoway pcarrow rx2  rz2 rx1 rz1 if numetab=="0931585T" &  session==1997 | session ==2014
+twoway pcarrow rx2  rz2 rx1 rz1 if numetab=="0931585T" &  session==1997
