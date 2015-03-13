@@ -1,0 +1,11 @@
+import delimited C:\Users\Antoine\Desktop\etab.csv
+
+gen adm_ins = ( nombretotaldadmis / nombredinscrits ) * 100
+gen sansmention_ins = ( nombredadmissansmention / nombredinscrits ) * 100
+gen ab_ins = ( nombredadmismentionab / nombredinscrits ) * 100
+gen b_ins = ( nombredadmismentionb / nombredinscrits ) * 100
+gen tb_ins = ( nombredadmismentiontb / nombredinscrits ) * 100
+gen ab_adm = ( nombredadmismentionab / nombretotaldadmis ) * 100
+gen b_adm = ( nombredadmismentionb / nombretotaldadmis ) * 100
+gen tb_adm = ( nombredadmismentiontb / nombretotaldadmis ) * 100
+gen sansmention_adm = ( nombredadmissansmention / nombretotaldadmis ) * 100
