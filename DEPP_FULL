@@ -377,3 +377,8 @@ replace cs80=0 if cs80==.
 replace cs81=0 if cs81==.
 replace cs82=0 if cs82==.
 replace cs99=0 if cs99==.
+
+
+foreach x of varlist (cs10-cs99) {
+gen p_`x' = (`x' / pond_inscrits) * 100
+}
