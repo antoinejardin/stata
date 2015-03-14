@@ -56,8 +56,38 @@ clear
 import delimited C:\Users\Antoine\Desktop\DEPP\s14.csv
 save "C:\Users\Antoine\Desktop\DEPP\s14.dta"
 
-## Fusion des fichiers par année
+## Gestion des incohérences de format 
 
+use "C:\Users\Antoine\Desktop\DEPP\s07.dta"
+
+tab franaistranger
+
+destring franaistranger, replace force
+save "C:\Users\Antoine\Desktop\DEPP\s07.dta", replace
+use "C:\Users\Antoine\Desktop\DEPP\s08.dta"
+destring franaistranger, replace force
+save "C:\Users\Antoine\Desktop\DEPP\s08.dta", replace
+use "C:\Users\Antoine\Desktop\DEPP\s09.dta"
+destring franaistranger, replace force
+save "C:\Users\Antoine\Desktop\DEPP\s09.dta", replace
+use "C:\Users\Antoine\Desktop\DEPP\s10.dta"
+destring franaistranger, replace force
+save "C:\Users\Antoine\Desktop\DEPP\s10.dta", replace
+use "C:\Users\Antoine\Desktop\DEPP\s11.dta"
+destring franaistranger, replace force
+save "C:\Users\Antoine\Desktop\DEPP\s11.dta", replace
+use "C:\Users\Antoine\Desktop\DEPP\s12.dta"
+destring franaistranger, replace force
+save "C:\Users\Antoine\Desktop\DEPP\s12.dta", replace
+use "C:\Users\Antoine\Desktop\DEPP\s13.dta"
+destring franaistranger, replace force
+save "C:\Users\Antoine\Desktop\DEPP\s13.dta", replace
+use "C:\Users\Antoine\Desktop\DEPP\s14.dta"
+destring franaistranger, replace force
+save "C:\Users\Antoine\Desktop\DEPP\s14.dta", replace
+clear
+
+## Fusion des fichiers par année
 
 use "C:\Users\Antoine\Desktop\DEPP\s97.dta", clear
 
