@@ -56,4 +56,27 @@ clear
 import delimited C:\Users\Antoine\Desktop\DEPP\s14.csv
 save "C:\Users\Antoine\Desktop\DEPP\s14.dta"
 
+## Fusion des fichiers par année
+
+
+use "C:\Users\Antoine\Desktop\DEPP\s97.dta", clear
+
+append using "C:\Users\Antoine\Desktop\DEPP\s98.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s99.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s00.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s01.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s02.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s03.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s04.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s05.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s06.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s07.dta", force
+append using "C:\Users\Antoine\Desktop\DEPP\s08.dta", force
+append using "C:\Users\Antoine\Desktop\DEPP\s09.dta", force
+append using "C:\Users\Antoine\Desktop\DEPP\s10.dta", force
+append using "C:\Users\Antoine\Desktop\DEPP\s11.dta", force
+append using "C:\Users\Antoine\Desktop\DEPP\s12.dta", force
+append using "C:\Users\Antoine\Desktop\DEPP\s13.dta", force
+append using "C:\Users\Antoine\Desktop\DEPP\s14.dta", force
+
 
