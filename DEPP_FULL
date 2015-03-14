@@ -240,3 +240,17 @@ gen p_`x' = (`x' / pond_inscrits) * 100
 egen control_1 = rowtotal (p_cs1-p_cs9)
 
 drop control_1
+
+
+### A partir de cette étape, on peut réaliser un export ###
+### On peut aussi reprendre la procédure avec la pcs24  ###
+
+### Demo Export ###
+
+save "C:\Users\Antoine\Desktop\DEPP\depp.dta", replace
+
+duplicates drop test, force
+ 
+## On passe ici d'un dataset à 5 millions de lignes à un dataset de 100 000 lignes.
+## Une par an, par lycée, par série, par cs à une par an et par lycée.
+ 
