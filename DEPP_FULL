@@ -208,3 +208,43 @@ gen cs7 = test if pcs8 == 7
 gen cs8 = test if pcs8 == 8
 gen cs9 = test if pcs8 == 9
 
+gen gcs10= test if pcs24 ==10
+gen gcs20= test if pcs24 ==20
+gen gcs21= test if pcs24 ==21
+gen gcs22= test if pcs24 ==22
+gen gcs23= test if pcs24 ==23
+gen gcs30= test if pcs24 ==30
+gen gcs31= test if pcs24 ==31
+gen gcs33= test if pcs24 ==33
+gen gcs34= test if pcs24 ==34
+gen gcs35= test if pcs24 ==35
+gen gcs37= test if pcs24 ==37
+gen gcs38= test if pcs24 ==38
+gen gcs40= test if pcs24 ==40
+gen gcs42= test if pcs24 ==42
+gen gcs43= test if pcs24 ==43
+gen gcs44= test if pcs24 ==44
+gen gcs45= test if pcs24 ==45
+gen gcs46= test if pcs24 ==46
+gen gcs47= test if pcs24 ==47
+gen gcs48= test if pcs24 ==48
+gen gcs50= test if pcs24 ==50
+gen gcs52= test if pcs24 ==52
+gen gcs53= test if pcs24 ==53
+gen gcs54= test if pcs24 ==54
+gen gcs55= test if pcs24 ==55
+gen gcs56= test if pcs24 ==56
+gen gcs60= test if pcs24 ==60
+gen gcs61= test if pcs24 ==61
+gen gcs66= test if pcs24 ==66
+gen gcs69= test if pcs24 ==69
+gen gcs70= test if pcs24 ==70
+gen gcs71= test if pcs24 ==71
+gen gcs72= test if pcs24 ==72
+gen gcs73= test if pcs24 ==73
+gen gcs76= test if pcs24 ==76
+gen gcs80= test if pcs24 ==80
+gen gcs81= test if pcs24 ==81
+gen gcs82= test if pcs24 ==82
+gen gcs99= test if pcs24 ==99
+
