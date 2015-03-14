@@ -168,4 +168,27 @@ replace ab_adm = 0 if ab_adm == .
 replace b_adm = 0 if b_adm == .
 replace tb_adm = 0 if tb_adm == .
 
+## Identifiant par mention, par lycée et par session 
+
+egen id_etab2 = concat(numetab session serie ), punct(_)
+
+bysort id_etab2 : egen  ser_admis = total(admis)
+bysort id_etab2 : egen  ser_inscrits = total(inscrits)
+bysort id_etab2 : egen  ser_presents = total(presents)
+bysort id_etab2 : egen  ser_nomention = total(nomention)
+bysort id_etab2 : egen  ser_ab = total(ab)
+bysort id_etab2 : egen  ser_b = total(b)
+bysort id_etab2 : egen  ser_tb = total(tb)
+
+gen ser_succ = ( ser_admis / ser_inscrits ) * 100
+gen ser_nm_adm = ( ser_nomention / ser_admis ) * 100
+gen ser_ab_adm = ( ser_ab / ser_admis ) * 100
+gen ser_b_adm = ( ser_b / ser_admis ) * 100
+gen ser_tb_adm = ( ser_tb / ser_admis ) * 100
+
+replace ser_nm_adm = 0 if ser_nm_adm == .
+replace ser_ab_adm = 0 if ser_ab_adm == .
+replace ser_b_adm = 0 if ser_b_adm == .
+replace ser_tb_adm = 0 if ser_tb_adm == .
+
 ## TODO : PCS
