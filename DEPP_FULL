@@ -297,6 +297,47 @@ bysort id_etab : egen cs82 = total(inscrits) if pcs24 == 82
 bysort id_etab : egen cs99 = total(inscrits) if pcs24 == 99
 
 
+xfill cs10 , i(test)
+xfill cs20 , i(test)
+xfill cs21 , i(test)
+xfill cs22 , i(test)
+xfill cs23 , i(test)
+xfill cs30 , i(test)
+xfill cs31 , i(test)
+xfill cs33 , i(test)
+xfill cs34 , i(test)
+xfill cs35 , i(test)
+xfill cs37 , i(test)
+xfill cs38 , i(test)
+xfill cs40 , i(test)
+xfill cs42 , i(test)
+xfill cs43 , i(test)
+xfill cs44 , i(test)
+xfill cs45 , i(test)
+xfill cs46 , i(test)
+xfill cs47 , i(test)
+xfill cs48 , i(test)
+xfill cs50 , i(test)
+xfill cs52 , i(test)
+xfill cs53 , i(test)
+xfill cs54 , i(test)
+xfill cs55 , i(test)
+xfill cs56 , i(test)
+xfill cs60 , i(test)
+xfill cs61 , i(test)
+xfill cs66 , i(test)
+xfill cs69 , i(test)
+xfill cs70 , i(test)
+xfill cs71 , i(test)
+xfill cs72 , i(test)
+xfill cs73 , i(test)
+xfill cs76 , i(test)
+xfill cs80 , i(test)
+xfill cs81 , i(test)
+xfill cs82 , i(test)
+xfill cs99 , i(test)
+
+
 replace cs10=0 if cs10==.
 replace cs20=0 if cs20==.
 replace cs21=0 if cs21==.
