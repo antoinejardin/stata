@@ -38,3 +38,80 @@ factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2013
 predict a1_13 a2_13 a3_13
 factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2014
 predict a1_14 a2_14 a3_14
+
+
+## Analyses factorielles avec rotation
+## Structure sociale des lycées par année
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 1997
+rotate
+predict ar1_97 ar2_97 ar3_97
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 1998
+rotate
+predict ar1_98 ar2_98 ar3_98
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 1999
+rotate
+predict ar1_99 ar2_99 ar3_99
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2000
+rotate
+predict ar1_00 ar2_00 ar3_00
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2001
+rotate
+predict ar1_01 ar2_01 ar3_01
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2002
+rotate
+predict ar1_02 ar2_02 ar3_02
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2003
+rotate
+predict ar1_03 ar2_03 ar3_03
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2004
+rotate
+predict ar1_04 ar2_04 ar3_04
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2005
+rotate
+predict ar1_05 ar2_05 ar3_05
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2006
+rotate
+predict ar1_06 ar2_06 ar3_06
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2007
+rotate
+predict ar1_07 ar2_07 ar3_07
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2008
+rotate
+predict ar1_08 ar2_08 ar3_08
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2009
+rotate
+predict ar1_09 ar2_09 ar3_09
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2010
+rotate
+predict ar1_10 ar2_10 ar3_10
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2011
+rotate
+predict ar1_11 ar2_11 ar3_11
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2012
+rotate
+predict ar1_12 ar2_12 ar3_12
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2013
+rotate
+predict ar1_13 ar2_13 ar3_13
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session ==  2014
+rotate
+predict ar1_14 ar2_14 ar3_14
+
