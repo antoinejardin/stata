@@ -253,4 +253,86 @@ duplicates drop test, force
  
 ## On passe ici d'un dataset à 5 millions de lignes à un dataset de 100 000 lignes.
 ## Une par an, par lycée, par série, par cs à une par an et par lycée.
+
+### PCS 24 postes 
  
+bysort id_etab : egen cs10 = total(inscrits) if pcs24 == 10
+bysort id_etab : egen cs20 = total(inscrits) if pcs24 == 20
+bysort id_etab : egen cs21 = total(inscrits) if pcs24 == 21
+bysort id_etab : egen cs22 = total(inscrits) if pcs24 == 22
+bysort id_etab : egen cs23 = total(inscrits) if pcs24 == 23
+bysort id_etab : egen cs30 = total(inscrits) if pcs24 == 30
+bysort id_etab : egen cs31 = total(inscrits) if pcs24 == 31
+bysort id_etab : egen cs33 = total(inscrits) if pcs24 == 33
+bysort id_etab : egen cs34 = total(inscrits) if pcs24 == 34
+bysort id_etab : egen cs35 = total(inscrits) if pcs24 == 35
+bysort id_etab : egen cs37 = total(inscrits) if pcs24 == 37
+bysort id_etab : egen cs38 = total(inscrits) if pcs24 == 38
+bysort id_etab : egen cs40 = total(inscrits) if pcs24 == 40
+bysort id_etab : egen cs42 = total(inscrits) if pcs24 == 42
+bysort id_etab : egen cs43 = total(inscrits) if pcs24 == 43
+bysort id_etab : egen cs44 = total(inscrits) if pcs24 == 44
+bysort id_etab : egen cs45 = total(inscrits) if pcs24 == 45
+bysort id_etab : egen cs46 = total(inscrits) if pcs24 == 46
+bysort id_etab : egen cs47 = total(inscrits) if pcs24 == 47
+bysort id_etab : egen cs48 = total(inscrits) if pcs24 == 48
+bysort id_etab : egen cs50 = total(inscrits) if pcs24 == 50
+bysort id_etab : egen cs52 = total(inscrits) if pcs24 == 52
+bysort id_etab : egen cs53 = total(inscrits) if pcs24 == 53
+bysort id_etab : egen cs54 = total(inscrits) if pcs24 == 54
+bysort id_etab : egen cs55 = total(inscrits) if pcs24 == 55
+bysort id_etab : egen cs56 = total(inscrits) if pcs24 == 56
+bysort id_etab : egen cs60 = total(inscrits) if pcs24 == 60
+bysort id_etab : egen cs61 = total(inscrits) if pcs24 == 61
+bysort id_etab : egen cs66 = total(inscrits) if pcs24 == 66
+bysort id_etab : egen cs69 = total(inscrits) if pcs24 == 69
+bysort id_etab : egen cs70 = total(inscrits) if pcs24 == 70
+bysort id_etab : egen cs71 = total(inscrits) if pcs24 == 71
+bysort id_etab : egen cs72 = total(inscrits) if pcs24 == 72
+bysort id_etab : egen cs73 = total(inscrits) if pcs24 == 73
+bysort id_etab : egen cs76 = total(inscrits) if pcs24 == 76
+bysort id_etab : egen cs80 = total(inscrits) if pcs24 == 80
+bysort id_etab : egen cs81 = total(inscrits) if pcs24 == 81
+bysort id_etab : egen cs82 = total(inscrits) if pcs24 == 82
+bysort id_etab : egen cs99 = total(inscrits) if pcs24 == 99
+
+
+replace cs10=0 if cs10==.
+replace cs20=0 if cs20==.
+replace cs21=0 if cs21==.
+replace cs22=0 if cs22==.
+replace cs23=0 if cs23==.
+replace cs30=0 if cs30==.
+replace cs31=0 if cs31==.
+replace cs33=0 if cs33==.
+replace cs34=0 if cs34==.
+replace cs35=0 if cs35==.
+replace cs37=0 if cs37==.
+replace cs38=0 if cs38==.
+replace cs40=0 if cs40==.
+replace cs42=0 if cs42==.
+replace cs43=0 if cs43==.
+replace cs44=0 if cs44==.
+replace cs45=0 if cs45==.
+replace cs46=0 if cs46==.
+replace cs47=0 if cs47==.
+replace cs48=0 if cs48==.
+replace cs50=0 if cs50==.
+replace cs52=0 if cs52==.
+replace cs53=0 if cs53==.
+replace cs54=0 if cs54==.
+replace cs55=0 if cs55==.
+replace cs56=0 if cs56==.
+replace cs60=0 if cs60==.
+replace cs61=0 if cs61==.
+replace cs66=0 if cs66==.
+replace cs69=0 if cs69==.
+replace cs70=0 if cs70==.
+replace cs71=0 if cs71==.
+replace cs72=0 if cs72==.
+replace cs73=0 if cs73==.
+replace cs76=0 if cs76==.
+replace cs80=0 if cs80==.
+replace cs81=0 if cs81==.
+replace cs82=0 if cs82==.
+replace cs99=0 if cs99==.
