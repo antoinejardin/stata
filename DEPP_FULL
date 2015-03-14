@@ -192,3 +192,19 @@ replace ser_b_adm = 0 if ser_b_adm == .
 replace ser_tb_adm = 0 if ser_tb_adm == .
 
 ## TODO : PCS
+
+use "C:\Users\Antoine\Desktop\DEPP\depp.dta", clear
+
+bysort id_etab pcs8 : egen test = total(inscrits)
+bysort id_etab pcs24 : egen test24 = total(inscrits)
+
+gen cs1 = test if pcs8 == 1
+gen cs2 = test if pcs8 == 2
+gen cs3 = test if pcs8 == 3
+gen cs4 = test if pcs8 == 4
+gen cs5 = test if pcs8 == 5
+gen cs6 = test if pcs8 == 6
+gen cs7 = test if pcs8 == 7
+gen cs8 = test if pcs8 == 8
+gen cs9 = test if pcs8 == 9
+
