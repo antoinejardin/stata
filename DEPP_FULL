@@ -152,3 +152,20 @@ bysort id_etab : egen  pond_b = total(b)
 bysort id_etab : egen  pond_tb = total(tb)
 
 order pond_inscrits pond_presents, after( num )
+
+## Taux de réussite et mention
+
+gen psucc = ( pond_admis / pond_inscrits ) * 100
+gen nm_adm = ( pond_nomention / pond_admis ) * 100
+gen ab_adm = ( pond_ab / pond_admis ) * 100
+gen b_adm = ( pond_b / pond_admis ) * 100
+gen tb_adm = ( pond_tb / pond_admis ) * 100
+
+## Gestion des valeurs manquantes
+
+replace nm_adm = 0 if nm_adm == .
+replace ab_adm = 0 if ab_adm == .
+replace b_adm = 0 if b_adm == .
+replace tb_adm = 0 if tb_adm == .
+
+## TODO : PCS
