@@ -1,4 +1,8 @@
 
+## Identifiant établissement
+
+bysort numetab : gen id_etad = 1 if _n ==1
+
 ## Analyses factorielles
 ## Structure sociale des lycées par année
 
