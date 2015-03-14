@@ -109,3 +109,29 @@ append using "C:\Users\Antoine\Desktop\DEPP\s12.dta"
 append using "C:\Users\Antoine\Desktop\DEPP\s13.dta"
 append using "C:\Users\Antoine\Desktop\DEPP\s14.dta"
 
+## Sauvegarde
+
+save "C:\Users\Antoine\Desktop\DEPP\depp.dta"
+
+## Renommage des variables
+
+ren originesocialedtaille pcs8
+ren pcs8 pcs24
+ren originesociale8groupes pcs8
+ren franaistranger natio
+ren sriedubaccalauratlibc serie
+ren numrodtablissement numetan
+ren numetan numetab
+ren communeetarrondissement com
+ren secteurdenseignement secteur
+ren etablissementsensible sensible
+ren nombredinscrits inscrits
+ren nombredeprsents presents
+ren nombretotaldadmis admis
+ren nombredadmissansmention nomention
+ren nombredadmismentionab ab
+ren nombredadmismentionb b
+ren nombredadmismentiontb tb
+ren nombredtablissements nbetab
+
+
