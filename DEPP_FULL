@@ -100,13 +100,12 @@ append using "C:\Users\Antoine\Desktop\DEPP\s03.dta"
 append using "C:\Users\Antoine\Desktop\DEPP\s04.dta"
 append using "C:\Users\Antoine\Desktop\DEPP\s05.dta"
 append using "C:\Users\Antoine\Desktop\DEPP\s06.dta"
-append using "C:\Users\Antoine\Desktop\DEPP\s07.dta", force
-append using "C:\Users\Antoine\Desktop\DEPP\s08.dta", force
-append using "C:\Users\Antoine\Desktop\DEPP\s09.dta", force
-append using "C:\Users\Antoine\Desktop\DEPP\s10.dta", force
-append using "C:\Users\Antoine\Desktop\DEPP\s11.dta", force
-append using "C:\Users\Antoine\Desktop\DEPP\s12.dta", force
-append using "C:\Users\Antoine\Desktop\DEPP\s13.dta", force
-append using "C:\Users\Antoine\Desktop\DEPP\s14.dta", force
-
+append using "C:\Users\Antoine\Desktop\DEPP\s07.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s08.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s09.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s10.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s11.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s12.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s13.dta"
+append using "C:\Users\Antoine\Desktop\DEPP\s14.dta"
 
