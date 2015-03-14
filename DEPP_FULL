@@ -205,6 +205,8 @@ bysort id_etab : egen cs7 = total(inscrits) if pcs8 == 7
 bysort id_etab : egen cs8 = total(inscrits) if pcs8 == 8
 bysort id_etab : egen cs9 = total(inscrits) if pcs8 == 9
 
+## Cylindrage des données 
+
 egen test = group ( id_etab )
 
 xfill cs1, i(test)
@@ -226,3 +228,15 @@ replace cs6 = 0 if cs6 == .
 replace cs7 = 0 if cs7 == .
 replace cs8 = 0 if cs8 == .
 replace cs9 = 0 if cs9 == .
+
+## Boucle pourcentages (CS8)
+
+foreach x of varlist (cs1-cs9) {
+gen p_`x' = (`x' / pond_inscrits) * 100
+}
+
+## Controle
+
+egen control_1 = rowtotal (p_cs1-p_cs9)
+
+drop control_1
