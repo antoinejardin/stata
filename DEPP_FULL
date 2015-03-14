@@ -204,3 +204,25 @@ bysort id_etab : egen cs6 = total(inscrits) if pcs8 == 6
 bysort id_etab : egen cs7 = total(inscrits) if pcs8 == 7
 bysort id_etab : egen cs8 = total(inscrits) if pcs8 == 8
 bysort id_etab : egen cs9 = total(inscrits) if pcs8 == 9
+
+egen test = group ( id_etab )
+
+xfill cs1, i(test)
+xfill cs2, i(test)
+xfill cs3, i(test)
+xfill cs4, i(test)
+xfill cs5, i(test)
+xfill cs6, i(test)
+xfill cs7, i(test)
+xfill cs8, i(test)
+xfill cs9, i(test)
+
+replace cs1 = 0 if cs1 == .
+replace cs2 = 0 if cs2 == .
+replace cs3 = 0 if cs3 == .
+replace cs4 = 0 if cs4 == .
+replace cs5 = 0 if cs5 == .
+replace cs6 = 0 if cs6 == .
+replace cs7 = 0 if cs7 == .
+replace cs8 = 0 if cs8 == .
+replace cs9 = 0 if cs9 == .
