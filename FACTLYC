@@ -120,4 +120,67 @@ predict ar1_14 ar2_14 ar3_14
 
 ## Matrice des axes 1 
 
- graph matrix ar1_97 ar1_98 ar1_99 ar1_00 ar1_01 ar1_02 ar1_03 ar1_04 ar1_05 ar1_06 ar1_07 ar1_08 ar1_09 ar1_10 ar1_11 ar1_12 ar1_13 ar1_14
+graph matrix ar1_97 ar1_98 ar1_99 ar1_00 ar1_01 ar1_02 ar1_03 ar1_04 ar1_05 ar1_06 ar1_07 ar1_08 ar1_09 ar1_10 ar1_11 ar1_12 ar1_13 ar1_14
+
+
+## Analyse factorielle pondérée avec rotation
+
+
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 1997 [w=pop]
+rotate
+predict arp1_97 arp2_97 arp3_97
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 1998 [w=pop]
+rotate
+predict arp1_98 arp2_98 arp3_98
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 1999 [w=pop]
+rotate
+predict arp1_99 arp2_99 arp3_99
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2000 [w=pop]
+rotate
+predict arp1_00 arp2_00 arp3_00
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2001 [w=pop]
+rotate
+predict arp1_01 arp2_01 arp3_01
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2002 [w=pop]
+rotate
+predict arp1_02 arp2_02 arp3_02
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2003 [w=pop]
+rotate
+predict arp1_03 arp2_03 arp3_03
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2004 [w=pop]
+rotate
+predict arp1_04 arp2_04 arp3_04
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2005 [w=pop]
+rotate
+predict arp1_05 arp2_05 arp3_05
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2006 [w=pop]
+rotate
+predict arp1_06 arp2_06 arp3_06
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2007 [w=pop]
+rotate
+predict arp1_07 arp2_07 arp3_07
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2008 [w=pop]
+rotate
+predict arp1_08 arp2_08 arp3_08
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2009 [w=pop]
+rotate
+predict arp1_09 arp2_09 arp3_09
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2010 [w=pop]
+rotate
+predict arp1_10 arp2_10 arp3_10
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2011 [w=pop]
+rotate
+predict arp1_11 arp2_11 arp3_11
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2012 [w=pop]
+rotate
+predict arp1_12 arp2_12 arp3_12
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2013 [w=pop]
+rotate
+predict arp1_13 arp2_13 arp3_13
+factor s1 s2 s3 s4 s5 s6 s7 s8 s9 if session == 2014 [w=pop]
+rotate
+predict arp1_14 arp2_14 arp3_14
+
+## Matrice des axes 1
+
+graph matrix arp1_97 arp1_98 arp1_99 arp1_00 arp1_01 arp1_02 arp1_03 arp1_04 arp1_05 arp1_06 arp1_07 arp1_08 arp1_09 arp1_10 arp1_11 arp1_12 arp1_13 arp1_14
