@@ -138,3 +138,17 @@ ren nombredtablissements nbetab
 
 egen id_etab = concat(numetab session), punct(_)
 
+
+## Compteur des résultats
+
+gen num = 1
+
+bysort id_etab : egen  pond_admis = total(admis)
+bysort id_etab : egen  pond_inscrits = total(inscrits)
+bysort id_etab : egen  pond_presents = total(presents)
+bysort id_etab : egen  pond_nomention = total(nomention)
+bysort id_etab : egen  pond_ab = total(ab)
+bysort id_etab : egen  pond_b = total(b)
+bysort id_etab : egen  pond_tb = total(tb)
+
+order pond_inscrits pond_presents, after( num )
