@@ -134,4 +134,7 @@ ren nombredadmismentionb b
 ren nombredadmismentiontb tb
 ren nombredtablissements nbetab
 
+## Id Unique Lycée x Session 
+
+egen id_etab = concat(numetab session), punct(_)
 
