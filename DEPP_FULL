@@ -467,6 +467,26 @@ replace ab_bac_s  = 0 if ab_bac_s ==.
 replace b_bac_s  = 0 if b_bac_s==.
 replace tb_bac_s = 0 if tb_bac_s==.
 
+
+gen tx_nm_es = (nm_bac_es / adm_bac_es) * 100
+gen tx_ab_es = (ab_bac_es / adm_bac_es) * 100
+gen tx_b_es  = (b_bac_es / adm_bac_es)  * 100
+gen tx_tb_es = (tb_bac_es / adm_bac_es) * 100
+
+gen tx_nm_l = (nm_bac_l / adm_bac_l) * 100
+gen tx_ab_l = (ab_bac_l / adm_bac_l) * 100
+gen tx_b_l  = (b_bac_l / adm_bac_l)  * 100
+gen tx_tb_l = (tb_bac_l / adm_bac_l) * 100
+
+gen tx_nm_s = (nm_bac_s / adm_bac_s) * 100
+gen tx_ab_s = (ab_bac_s / adm_bac_s) * 100
+gen tx_b_s  = (b_bac_s / adm_bac_s)  * 100
+gen tx_tb_s = (tb_bac_s / adm_bac_s) * 100
+
+foreach x of varlist(tx_nm_es-tx_tb_s) {
+replace `x' = 0 if `x' ==.
+}
+
 ## Analyse factorielle par pcs
 
 factor p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 [w= pond_admis]
