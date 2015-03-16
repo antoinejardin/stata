@@ -721,7 +721,60 @@ gen tx_btb_s = tx_b_s + tx_tb_s
 
 ## Analyse factorielle par pcs
 
-factor p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 [w= pond_admis]
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==1997
+predict a1_97 a2_97 a3_97
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==1998
+predict a1_98 a2_98 a3_98
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==1999
+predict a1_99 a2_99 a3_99
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2000
+predict a1_00 a2_00 a3_00
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2001
+predict a1_01 a2_01 a3_01
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2002
+predict a1_02 a2_02 a3_02
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2003
+predict a1_03 a2_03 a3_03
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2004
+predict a1_04 a2_04 a3_04
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2005
+predict a1_05 a2_05 a3_05
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2006
+predict a1_06 a2_06 a3_06
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2007
+predict a1_07 a2_07 a3_07
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2008
+predict a1_08 a2_08 a3_08
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2009
+predict a1_09 a2_09 a3_09
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2010
+predict a1_10 a2_10 a3_10
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2011
+predict a1_11 a2_11 a3_11
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2012
+predict a1_12 a2_12 a3_12
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2013
+predict a1_13 a2_13 a3_13
+
+factor p_cs1-p_cs9 [w= tot_inscrits] if session==2014
+predict a1_14 a2_14 a3_14
 
 ## Prédiction des axes
 
