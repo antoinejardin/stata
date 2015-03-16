@@ -383,6 +383,89 @@ foreach x of varlist (cs10-cs99) {
 gen p_`x' = (`x' / pond_inscrits) * 100
 }
 
+## Identification des effectifs par par type de bac
+
+bysort id_etab : egen bac_es = total(inscrits) if type == 1
+bysort id_etab : egen bac_l = total(inscrits) if type == 6
+bysort id_etab : egen bac_s = total(inscrits) if type == 9
+
+xfill bac_es, i(test)
+xfill bac_l, i(test)
+xfill bac_s, i(test)
+
+replace bac_es = 0 if bac_es == .
+replace bac_l = 0 if bac_l == .
+replace bac_s = 0 if bac_s == .
+
+foreach x of varlist (bac_es-bac_s) {
+gen p_`x' = (`x' / tot_inscrits) * 100
+}
+
+## Taux de réussite par type de bac
+
+bysort id_etab : egen adm_bac_es = total(admis) if type == 1
+bysort id_etab : egen adm_bac_l = total(admis) if type == 6
+bysort id_etab : egen adm_bac_s = total(admis) if type == 9
+
+xfill adm_bac_es, i(test)
+xfill adm_bac_l, i(test)
+xfill adm_bac_s, i(test)
+
+replace adm_bac_es = 0 if adm_bac_es == .
+replace adm_bac_l = 0 if adm_bac_l == .
+replace adm_bac_s = 0 if adm_bac_s == .
+
+gen tx_adm_es = (adm_bac_es / bac_es) * 100
+gen tx_adm_l  = (adm_bac_l  / bac_l) * 100
+gen tx_adm_s  = (adm_bac_s  / bac_s) * 100
+
+
+## Taux de mention par type de bac 
+
+bysort id_etab : egen nm_bac_es = total(nm_adm) if type == 1
+bysort id_etab : egen ab_bac_es = total(ab_adm) if type == 1
+bysort id_etab : egen b_bac_es = total(b_adm)  if type == 1
+bysort id_etab : egen tb_bac_es = total(tb_adm) if type == 1
+
+bysort id_etab : egen nm_bac_l = total(nm_adm) if type == 6
+bysort id_etab : egen ab_bac_l = total(ab_adm) if type == 6
+bysort id_etab : egen b_bac_l = total(b_adm)  if type == 6
+bysort id_etab : egen tb_bac_l = total(tb_adm) if type == 6
+
+bysort id_etab : egen nm_bac_s = total(nm_adm) if type == 9
+bysort id_etab : egen ab_bac_s = total(ab_adm) if type == 9
+bysort id_etab : egen b_bac_s = total(b_adm)  if type == 9
+bysort id_etab : egen tb_bac_s = total(tb_adm) if type == 9
+
+xfill nm_bac_es, i(test)
+xfill ab_bac_es, i(test)
+xfill b_bac_es, i(test)
+xfill tb_bac_es , i(test)
+
+xfill nm_bac_l, i(test)
+xfill ab_bac_l, i(test)
+xfill b_bac_l, i(test)
+xfill tb_bac_l , i(test)
+
+xfill nm_bac_s , i(test)
+xfill ab_bac_s , i(test)
+xfill b_bac_s , i(test)
+xfill tb_bac_s , i(test)
+
+replace nm_bac_es = 0 if nm_bac_es ==.
+replace ab_bac_es = 0 if ab_bac_es ==.
+replace b_bac_es = 0 if b_bac_es ==.
+replace tb_bac_es  = 0 if tb_bac_es ==.
+
+replace nm_bac_l = 0 if nm_bac_l ==.
+replace ab_bac_l = 0 if ab_bac_l==.
+replace b_bac_l = 0 if b_bac_l ==.
+replace tb_bac_l  = 0 if tb_bac_l==.
+
+replace nm_bac_s  = 0 if nm_bac_s==.
+replace ab_bac_s  = 0 if ab_bac_s ==.
+replace b_bac_s  = 0 if b_bac_s==.
+replace tb_bac_s = 0 if tb_bac_s==.
 
 ## Analyse factorielle par pcs
 
