@@ -382,3 +382,18 @@ replace cs99=0 if cs99==.
 foreach x of varlist (cs10-cs99) {
 gen p_`x' = (`x' / pond_inscrits) * 100
 }
+
+
+## Analyse factorielle par pcs
+
+factor p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 [w= pond_admis]
+
+## Prédiction des axes
+
+predict a1 a2 a3
+
+## Syntaxe générale de clustering
+
+cluster wardslinkage a1 a2 a3, measure(L2)
+cluster generate o = groups(12), name(_clus_1) ties(error)
+
