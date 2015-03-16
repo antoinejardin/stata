@@ -437,6 +437,25 @@ bysort id_etab : egen ab_bac_s = total(ab_adm) if type == 9
 bysort id_etab : egen b_bac_s = total(b_adm)  if type == 9
 bysort id_etab : egen tb_bac_s = total(tb_adm) if type == 9
 
+----------------------------------------------------------------
+
+bysort id_etab : egen nm_bac_es = total(nomention) if type == 1
+bysort id_etab : egen ab_bac_es = total(ab) if type == 1
+bysort id_etab : egen b_bac_es = total(b) if type == 1
+bysort id_etab : egen tb_bac_es = total(tb) if type == 1
+
+bysort id_etab : egen nm_bac_l = total(nomention) if type == 6
+bysort id_etab : egen ab_bac_l = total(ab) if type == 6
+bysort id_etab : egen b_bac_l = total(b) if type == 6
+bysort id_etab : egen tb_bac_l = total(tb) if type == 6
+
+bysort id_etab : egen nm_bac_s = total(nomention) if type == 9
+bysort id_etab : egen ab_bac_s = total(ab) if type == 9
+bysort id_etab : egen b_bac_s = total(b) if type == 9
+bysort id_etab : egen tb_bac_s = total(tb) if type == 9
+
+-----------------------------------------------------------------
+
 xfill nm_bac_es, i(test)
 xfill ab_bac_es, i(test)
 xfill b_bac_es, i(test)
