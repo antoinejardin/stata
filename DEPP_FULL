@@ -711,6 +711,13 @@ replace ent_cep = 2013  if numetab=="0950648N"
 replace ent_cep = 2002  if numetab=="0782539L"
 
 
+## Cumul des mentions Bien et Très Bien
+
+gen tx_btb = b_adm + tb_adm
+
+gen tx_btb_es = tx_b_es + tx_tb_es
+gen tx_btb_l = tx_b_l + tx_tb_l
+gen tx_btb_s = tx_b_s + tx_tb_s
 
 ## Analyse factorielle par pcs
 
