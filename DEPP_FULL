@@ -827,3 +827,45 @@ cluster generate o11 = groups(12), name(_clus_15) ties(error)
 cluster generate o12 = groups(12), name(_clus_16) ties(error)
 cluster generate o13 = groups(12), name(_clus_17) ties(error)
 cluster generate o14 = groups(12), name(_clus_18) ties(error)
+
+
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==1997, id(numetab) method(classical) measure(L2) dimension(2)
+predict x97 y97
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==1998, id(numetab) method(classical) measure(L2) dimension(2)
+predict x98 y98
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==1999, id(numetab) method(classical) measure(L2) dimension(2)
+predict x99 y99
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2000, id(numetab) method(classical) measure(L2) dimension(2)
+predict x00 y00
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2001, id(numetab) method(classical) measure(L2) dimension(2)
+predict x01 y01
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2002, id(numetab) method(classical) measure(L2) dimension(2)
+predict x02 y02
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2003, id(numetab) method(classical) measure(L2) dimension(2)
+predict x03 y03
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2004, id(numetab) method(classical) measure(L2) dimension(2)
+predict x04 y04
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2005, id(numetab) method(classical) measure(L2) dimension(2)
+predict x05 y05
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2006, id(numetab) method(classical) measure(L2) dimension(2)
+predict x06 y06
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2007, id(numetab) method(classical) measure(L2) dimension(2)
+predict x07 y07
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2008, id(numetab) method(classical) measure(L2) dimension(2)
+predict x08 y08
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2009, id(numetab) method(classical) measure(L2) dimension(2)
+predict x09 y09
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2010, id(numetab) method(classical) measure(L2) dimension(2)
+predict x10 y10
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2011, id(numetab) method(classical) measure(L2) dimension(2)
+predict x11 y11
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2012, id(numetab) method(classical) measure(L2) dimension(2)
+predict x12 y12
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2013, id(numetab) method(classical) measure(L2) dimension(2)
+predict x13 y13
+mds p_cs1 p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 p_cs9 if session==2014, id(numetab) method(classical) measure(L2) dimension(2)
+predict x14 y14
+
+
+
+
