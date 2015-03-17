@@ -791,7 +791,6 @@ cluster generate o = groups(12), name(_clus_1) ties(error)
 
 
 cluster wardslinkage p_cs1 p_cs3 p_cs2 p_cs4 p_cs5 p_cs6 p_cs8 p_cs7 p_cs9 if session==1997, measure(L2)
-cluster wardslinkage p_cs1 p_cs3 p_cs2 p_cs4 p_cs5 p_cs6 p_cs8 p_cs7 p_cs9 if session==1997 [w=tot_inscrits], measure(L2)
 cluster wardslinkage p_cs1 p_cs3 p_cs2 p_cs4 p_cs5 p_cs6 p_cs8 p_cs7 p_cs9 if session==1998, measure(L2)
 cluster wardslinkage p_cs1 p_cs3 p_cs2 p_cs4 p_cs5 p_cs6 p_cs8 p_cs7 p_cs9 if session==1999, measure(L2)
 cluster wardslinkage p_cs1 p_cs3 p_cs2 p_cs4 p_cs5 p_cs6 p_cs8 p_cs7 p_cs9 if session==2000, measure(L2)
