@@ -906,9 +906,6 @@ sc yy2 yy1 if gg3 == 1, mc(blue) || sc yy2 yy1 if gg3==2, mc(pink) || sc yy2 yy1
 
 ## Systématisation
 
-
-
-
 factor p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 [w=tot_inscrits] if session==2000
 predict ax1_00 ax2_00 ax3_00
 factor p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 [w=tot_inscrits] if session==2007
@@ -916,6 +913,8 @@ predict ax1_07 ax2_07 ax3_07
 factor p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 [w=tot_inscrits] if session==2014
 predict ax1_14 ax2_14 ax3_14
 sc ax1_00 ax1_07 ax1_14
+
+## Typo 2000 
 
 cluster wardslinkage ax1_00 ax2_00 ax3_00 if  session==2000, measure(L2) name(c1_00) 
 cluster dendrogram c1_00, cutnumber(20)
@@ -934,6 +933,22 @@ cluster generate g2b_3_00 = groups(2)
 cluster wardslinkage ax1_00 ax2_00 ax3_00 if  session==2000 &  g1_3_00 == 3 ,  measure(L2) name(c2c_00)
 cluster dendrogram c2c_00, cutnumber(20)
 cluster generate g2c_3_00 = groups(3) 
+
+
+factor p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 [w=tot_inscrits] if session==2000
+loadingplot
+
+gen typo_00 = .
+
+replace typo_00 = 1 if g2a_3_00 == 1
+replace typo_00 = 2 if g2a_3_00 == 2
+
+replace typo_00 = 3 if g2b_3_00 == 1
+replace typo_00 = 4 if g2b_3_00 == 2
+
+replace typo_00 = 5 if g2c_3_00 == 1
+replace typo_00 = 6 if g2c_3_00 == 2
+replace typo_00 = 7 if g2c_3_00 == 3
 
 
 
