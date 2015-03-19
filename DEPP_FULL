@@ -904,6 +904,38 @@ tab gg3
 
 sc yy2 yy1 if gg3 == 1, mc(blue) || sc yy2 yy1 if gg3==2, mc(pink) || sc yy2 yy1 if gg3==3, mc(orange) || sc yy2 yy1 if g3 == 2, mc(red) || sc yy2 yy1 if g3 == 3 , mc(black)
 
+## Systématisation
+
+
+
+
+factor p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 [w=tot_inscrits] if session==2000
+predict ax1_00 ax2_00 ax3_00
+factor p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 [w=tot_inscrits] if session==2007
+predict ax1_07 ax2_07 ax3_07
+factor p_cs2 p_cs3 p_cs4 p_cs5 p_cs6 p_cs7 p_cs8 [w=tot_inscrits] if session==2014
+predict ax1_14 ax2_14 ax3_14
+sc ax1_00 ax1_07 ax1_14
+
+cluster wardslinkage ax1_00 ax2_00 ax3_00 if  session==2000, measure(L2) name(c1_00) 
+cluster dendrogram c1_00, cutnumber(20)
+cluster generate g1_3_00 = groups(3)
+
+tab g1_3_00
+
+cluster wardslinkage ax1_00 ax2_00 ax3_00 if  session==2000 &  g1_3_00 == 1 ,  measure(L2) name(c2a_00) 
+cluster dendrogram c2a_00, cutnumber(20)
+cluster generate g2a_3_00 = groups(2)
+
+cluster wardslinkage ax1_00 ax2_00 ax3_00 if  session==2000 &  g1_3_00 == 2 ,  measure(L2) name(c2b_00)
+cluster dendrogram c2b_00, cutnumber(20)
+cluster generate g2b_3_00 = groups(2)
+
+cluster wardslinkage ax1_00 ax2_00 ax3_00 if  session==2000 &  g1_3_00 == 3 ,  measure(L2) name(c2c_00)
+cluster dendrogram c2c_00, cutnumber(20)
+cluster generate g2c_3_00 = groups(3) 
+
+
 
 
 
