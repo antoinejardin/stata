@@ -177,3 +177,5 @@ clear
 
 use "C:\Users\Antoine\Desktop\temp.dta"
 duplicates drop depcantcom, force
+
+save "C:\Users\Antoine\Desktop\temp.dta", replace
