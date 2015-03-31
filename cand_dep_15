@@ -104,10 +104,6 @@ append using "C:\Users\Antoine\Desktop\c9.dta"
 append using "C:\Users\Antoine\Desktop\c10.dta"
 append using "C:\Users\Antoine\Desktop\c11.dta"
 
-tab nuance
-egen idcand = concat( insee nuance voix), punct(_)
-list idcand
-
 save "C:\Users\Antoine\Desktop\raw_cand_dep15.dta"
 
 tab nuance
@@ -117,5 +113,17 @@ numlabel nu, add
 tab nu
 drop if nu==.
 
-list idcand
 save "C:\Users\Antoine\Desktop\clean_cand_dep15.dta"
+
+gen absins = (abstentions / inscrits) *100
+gen votins = ( votants / inscrits ) *100
+gen bnins = (( blancs + nuls ) / inscrits ) *100
+gen bnvot = (( blancs + nuls ) / votants ) *100
+gen vins =  (voix / inscrits) *100
+gen vexp =  (voix / exprims ) *100
+
+gen idcand = _n
+
+tab nu
+recode nu (  1 5 7 11 12 13 14 17 19 = 1 "gauche") (3 4 10 14 15 16 18 = 2 "droite") ( 6 9 = 3 "FN") (nonmiss = 9 "div"), gen (n1)
+tab n1
