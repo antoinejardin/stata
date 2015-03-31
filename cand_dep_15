@@ -132,3 +132,48 @@ egen depcant = concat( codep codcant) , punct (_)
 egen depcom = concat ( codep codcom) , punct(_)
 egen depcantcom = concat ( codep codcant codcom) , punct(_)
 list depcant depcom depcantcom
+
+
+save "C:\Users\Antoine\Desktop\clean_cand_dep15.dta", replace
+
+use "C:\Users\Antoine\Desktop\clean_cand_dep15.dta", replace
+
+collapse  (sum) voix , by(depcantcom n1)
+list depcantcom n1 voix
+
+reshape wide voix, i(depcantcom) j(n1)
+
+list depcantcom voix1 voix2 voix3 voix9 in 1/10
+save "C:\Users\Antoine\Desktop\depcantcom_voix.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\clean_cand_dep15.dta", replace
+
+merge m:m depcantcom using "C:\Users\Antoine\Desktop\depcantcom_voix.dta"
+
+ren voix1 vgauche
+ren voix2 vdroite
+ren voix3 vfn
+ren voix9 vdiv
+
+list depcantcom insee vgauche vdroite vfn vdiv
+
+gen gins = ( vgauche / inscrits ) * 100
+gen gexp = ( vgauche / exprims ) * 100
+gen dins = ( vdroite / inscrits ) * 100
+gen dexp = ( vdroite / exprims ) * 100
+gen fnins = ( vfn / inscrits ) * 100
+gen fnexp = ( vfn / exprims ) * 100
+gen divins = ( vdiv / inscrits ) * 100
+gen divexp = ( vdiv / exprims ) * 100
+
+duplicates list depcantcom
+save "C:\Users\Antoine\Desktop\temp.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\depcantcom_voix.dta"
+duplicates list depcantcom
+clear
+
+use "C:\Users\Antoine\Desktop\temp.dta"
+duplicates drop depcantcom, force
