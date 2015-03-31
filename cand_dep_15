@@ -1,0 +1,121 @@
+list codep codcom
+
+egen insee = concat( codep codcom)
+
+list insee
+
+save "C:\Users\Antoine\Desktop\dep15.dta"
+order insee, before( codep)
+keep insee-voix
+save "C:\Users\Antoine\Desktop\c1.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+order insee, before( codep)
+save "C:\Users\Antoine\Desktop\dep15.dta", replace
+keep insee-var16
+drop nuance voix
+ren var15 nuance
+ren var16 voix
+save "C:\Users\Antoine\Desktop\c2.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+keep insee-var18
+drop nuance-var16
+ren var17 nuance
+ren var18 voix
+save "C:\Users\Antoine\Desktop\c3.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+keep insee-var20
+drop nuance-var18
+ren var19 nuance
+ren var20 voix
+save "C:\Users\Antoine\Desktop\c4.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+keep insee-var22
+drop nuance-var20
+ren var21 nuance
+ren var22 voix
+save "C:\Users\Antoine\Desktop\c5.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+keep insee-var24
+drop nuance-var22
+ren var23 nuance
+ren var24 voix
+save "C:\Users\Antoine\Desktop\c6.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+keep insee-var26
+drop nuance-var24
+ren var25 nuance
+ren var26 voix
+save "C:\Users\Antoine\Desktop\c7.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+keep insee-var28
+drop nuance-var26
+ren var27 nuance
+ren var28 voix
+save "C:\Users\Antoine\Desktop\c8.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+keep insee-var30
+drop nuance-var28
+ren var29 nuance
+ren var30 voix
+save "C:\Users\Antoine\Desktop\c9.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+keep insee-var32
+drop nuance-var30
+ren var31 nuance
+ren var32 voix
+save "C:\Users\Antoine\Desktop\c10.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\dep15.dta"
+keep insee-var34
+drop nuance-var32
+ren var33 nuance
+ren var34 voix
+save "C:\Users\Antoine\Desktop\c11.dta"
+clear
+
+use "C:\Users\Antoine\Desktop\c1.dta"
+append using "C:\Users\Antoine\Desktop\c2.dta"
+append using "C:\Users\Antoine\Desktop\c3.dta"
+append using "C:\Users\Antoine\Desktop\c4.dta"
+append using "C:\Users\Antoine\Desktop\c5.dta"
+append using "C:\Users\Antoine\Desktop\c6.dta"
+append using "C:\Users\Antoine\Desktop\c7.dta"
+append using "C:\Users\Antoine\Desktop\c8.dta"
+append using "C:\Users\Antoine\Desktop\c9.dta"
+append using "C:\Users\Antoine\Desktop\c10.dta"
+append using "C:\Users\Antoine\Desktop\c11.dta"
+
+tab nuance
+egen idcand = concat( insee nuance voix), punct(_)
+list idcand
+
+save "C:\Users\Antoine\Desktop\raw_cand_dep15.dta"
+
+tab nuance
+encode nuance, gen (nu)
+tab nu
+numlabel nu, add
+tab nu
+drop if nu==.
+
+list idcand
+save "C:\Users\Antoine\Desktop\clean_cand_dep15.dta"
