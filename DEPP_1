@@ -1,0 +1,301 @@
+edit
+clear
+edit
+list var1 var2 var3 var4 var5 var6 var7 var8 var9 var10 var11
+ren var1 numetab
+ren var2 patronyme
+ren var3 ville
+ren var4 spred
+ren var5 sdiff
+ren var6 mpred
+ren var7 mdiff
+ren var8 orsucces
+ren var9 or mention
+ren var9 ormention
+ren var10 depa
+drop var11
+save "/home/me/MARCO/gc.dta"
+list orsucces ormention
+list numetab patronyme ville spred sdiff mpred mdiff orsucces ormention depa
+drop if depa==.
+gen vors = spred  / 82.68
+list orsucces vors
+clear
+use "/home/me/MARCO/mb4.dta"
+regress psucc p_cs3##p_cs6##p_cs8
+regress psucc c.p_cs3##c.p_cs6##c.p_cs8
+regress psucc c.p_cs3##c.p_cs6##c.p_cs8 [w=tot_inscrits]
+regress psucc c.p_cs3##c.p_cs6##c.p_cs8  c.p_cs3##i.session c.pcs6##i.session c.p_cs8##i.session [w=tot_inscrits]
+regress psucc c.p_cs3##c.p_cs6##c.p_cs8  c.p_cs3##i.session c.p_cs6##i.session c.p_cs8##i.session [w=tot_inscrits]
+margins session
+regress psucc c.p_cs3##c.p_cs6##c.p_cs8  c.p_cs3##i.session c.p_cs6##i.session c.p_cs8##i.session [w=tot_inscrits]
+predict succes_theo
+regress tx_btb c.p_cs3##c.p_cs6##c.p_cs8  c.p_cs3##i.session c.p_cs6##i.session c.p_cs8##i.session [w=tot_inscrits]
+predict mention_theo
+regress psucc c.p_cs3##c.p_cs6##c.p_cs8  c.p_cs3##i.session c.p_cs6##i.session c.p_cs8##i.session [w=tot_inscrits]
+margins session
+gen or_s_reel_97 = psucc / 74.06
+gen or_s_reel_98 = psucc / 76.69
+gen or_s_reel_99 = psucc / 76.17
+gen or_s_reel_00 = psucc / 78.21
+gen or_s_reel_01 = psucc / 77.34
+gen or_s_reel_02 = psucc / 78.66
+gen or_s_reel_03 = psucc / 82.91
+gen or_s_reel_04 = psucc / 81.51
+gen or_s_reel_05 = psucc / 83.38
+gen or_s_reel_06 = psucc / 85.66
+gen or_s_reel_07 = psucc / 87.19
+gen or_s_reel_08 = psucc / 87.30
+gen or_s_reel_09 = psucc / 88.25
+gen or_s_reel_10 = psucc / 86.26
+gen or_s_reel_11 = psucc / 87.30
+gen or_s_reel_12 = psucc / 88.89
+gen or_s_reel_13 = psucc / 91.30
+gen or_s_reel_14 = psucc / 90.24
+gen or_s_theo_97 = succes_theo / 74.06
+gen or_s_theo_98 = succes_theo / 76.69
+gen or_s_theo_99 = succes_theo / 76.17
+gen or_s_theo_00 = succes_theo / 78.21
+gen or_s_theo_01 = succes_theo / 77.34
+gen or_s_theo_02 = succes_theo / 78.66
+gen or_s_theo_03 = succes_theo / 82.91
+gen or_s_theo_04 = succes_theo / 81.51
+gen or_s_theo_05 = succes_theo / 83.38
+gen or_s_theo_06 = succes_theo / 85.66
+gen or_s_theo_07 = succes_theo / 87.19
+gen or_s_theo_08 = succes_theo / 87.30
+gen or_s_theo_09 = succes_theo / 88.25
+gen or_s_theo_10 = succes_theo / 86.26
+gen or_s_theo_11 = succes_theo / 87.30
+gen or_s_theo_12 = succes_theo / 88.89
+gen or_s_theo_13 = succes_theo / 91.30
+gen or_s_theo_14 = succes_theo / 90.24
+sc or_s_theo_14 or_s_reel_14 if cep2 == 1 & session == 2014
+sc or_s_theo_14 or_s_reel_14 if cep2 == 1 & session == 2014, ms(oh) msize(tiny)
+regress tx_btb c.p_cs3##c.p_cs6##c.p_cs8  c.p_cs3##i.session c.p_cs6##i.session c.p_cs8##i.session [w=tot_inscrits]
+margins session
+gen or_m_reel_97 = tx_btb / 8.38
+gen or_m_reel_98 = tx_btb / 9.00
+gen or_m_reel_99 = tx_btb / 9.15
+gen or_m_reel_00 = tx_btb / 9.36
+gen or_m_reel_01 = tx_btb / 9.12
+gen or_m_reel_02 = tx_btb / 9.63
+gen or_m_reel_03 = tx_btb / 12.71
+gen or_m_reel_04 = tx_btb / 13.26
+gen or_m_reel_05 = tx_btb / 13.50
+gen or_m_reel_06 = tx_btb / 17.25
+gen or_m_reel_07 = tx_btb / 19.06
+gen or_m_reel_08 = tx_btb / 20.93
+gen or_m_reel_09 = tx_btb / 21.88
+gen or_m_reel_10 = tx_btb / 19.87
+gen or_m_reel_11 = tx_btb / 20.93
+gen or_m_reel_12 = tx_btb / 23.58
+gen or_m_reel_13 = tx_btb / 27.58
+gen or_m_reel_14 = tx_btb / 27.13
+gen or_m_reel_97 = mention_theo / 74.06
+gen or_m_reel_98 = mention_theo / 76.69
+gen or_m_reel_99 = mention_theo / 76.17
+gen or_m_reel_00 = mention_theo / 78.21
+gen or_m_reel_01 = mention_theo / 77.34
+gen or_m_reel_02 = mention_theo / 78.66
+gen or_m_reel_03 = mention_theo / 82.91
+gen or_m_reel_04 = mention_theo / 81.51
+gen or_m_reel_05 = mention_theo / 83.38
+gen or_m_reel_06 = mention_theo / 85.66
+gen or_m_reel_07 = mention_theo / 87.19
+gen or_m_reel_08 = mention_theo / 87.30
+gen or_m_reel_09 = mention_theo / 88.25
+gen or_m_reel_10 = mention_theo / 86.26
+gen or_m_reel_11 = mention_theo / 87.30
+gen or_m_reel_12 = mention_theo / 88.89
+gen or_m_reel_13 = mention_theo / 91.30
+gen or_m_reel_14 = mention_theo / 90.24
+gen or_m_reel_97 = tx_btb / 8.38
+gen or_m_reel_98 = tx_btb / 9.00
+gen or_m_reel_99 = tx_btb / 9.15
+gen or_m_reel_00 = tx_btb / 9.36
+gen or_m_reel_01 = tx_btb / 9.12
+gen or_m_reel_02 = tx_btb / 9.63
+gen or_m_reel_03 = tx_btb / 12.71
+gen or_m_reel_04 = tx_btb / 13.26
+gen or_m_reel_05 = tx_btb / 13.50
+gen or_m_reel_06 = tx_btb / 17.25
+gen or_m_reel_07 = tx_btb / 19.06
+gen or_m_reel_08 = tx_btb / 20.93
+gen or_m_reel_09 = tx_btb / 21.88
+gen or_m_reel_10 = tx_btb / 19.87
+gen or_m_reel_11 = tx_btb / 20.93
+gen or_m_reel_12 = tx_btb / 23.58
+gen or_m_reel_13 = tx_btb / 27.58
+gen or_m_reel_14 = tx_btb / 27.13
+gen or_m_reel_97 = mention_theo / 74.06
+gen or_m_reel_98 = mention_theo / 76.69
+gen or_m_reel_99 = mention_theo / 76.17
+gen or_m_reel_00 = mention_theo / 78.21
+gen or_m_reel_01 = mention_theo / 77.34
+gen or_m_reel_02 = mention_theo / 78.66
+gen or_m_reel_03 = mention_theo / 82.91
+gen or_m_reel_04 = mention_theo / 81.51
+gen or_m_reel_05 = mention_theo / 83.38
+gen or_m_reel_06 = mention_theo / 85.66
+gen or_m_reel_07 = mention_theo / 87.19
+gen or_m_reel_08 = mention_theo / 87.30
+gen or_m_reel_09 = mention_theo / 88.25
+gen or_m_reel_10 = mention_theo / 86.26
+gen or_m_reel_11 = mention_theo / 87.30
+gen or_m_reel_12 = mention_theo / 88.89
+gen or_m_reel_13 = mention_theo / 91.30
+gen or_m_reel_14 = mention_theo / 90.24
+gen or_m_theo_97 = mention_theo / 74.06
+gen or_m_theo_98 = mention_theo / 76.69
+gen or_m_theo_99 = mention_theo / 76.17
+gen or_m_theo_00 = mention_theo / 78.21
+gen or_m_theo_01 = mention_theo / 77.34
+gen or_m_theo_02 = mention_theo / 78.66
+gen or_m_theo_03 = mention_theo / 82.91
+gen or_m_theo_04 = mention_theo / 81.51
+gen or_m_theo_05 = mention_theo / 83.38
+gen or_m_theo_06 = mention_theo / 85.66
+gen or_m_theo_07 = mention_theo / 87.19
+gen or_m_theo_08 = mention_theo / 87.30
+gen or_m_theo_09 = mention_theo / 88.25
+gen or_m_theo_10 = mention_theo / 86.26
+gen or_m_theo_11 = mention_theo / 87.30
+gen or_m_theo_12 = mention_theo / 88.89
+gen or_m_theo_13 = mention_theo / 91.30
+gen or_m_theo_14 = mention_theo / 90.24
+save "/home/me/MARCO/mb4.dta", replace
+sc or_m_theo_14 or_s_theo_14 if depa == 75
+sc or_m_reel_14 or_s_reel_14 if depa == 75
+mean psucc [w=tot_inscrits]
+mean psucc [w=tot_inscrits] if session == 2014
+mean tx_btb [w=tot_inscrits] if session == 2014
+ mean tx_btb [w=tot_inscrits] , over(session)
+ mean psucc [w=tot_inscrits] , over(session)
+gen or_m_reel2_97 = tx_btb / 8.33
+gen or_m_reel2_98 = tx_btb / 9.20
+gen or_m_reel2_99 = tx_btb / 9.31
+gen or_m_reel2_00 = tx_btb / 9.54
+gen or_m_reel2_01 = tx_btb / 9.23
+gen or_m_reel2_02 = tx_btb / 9.63
+gen or_m_reel2_03 = tx_btb / 12.59
+gen or_m_reel2_04 = tx_btb / 13.12
+gen or_m_reel2_05 = tx_btb / 13.35
+gen or_m_reel2_06 = tx_btb / 17.23
+gen or_m_reel2_07 = tx_btb / 18.89
+gen or_m_reel2_08 = tx_btb / 19.75
+gen or_m_reel2_09 = tx_btb / 21.75
+gen or_m_reel2_10 = tx_btb / 19.74
+gen or_m_reel2_11 = tx_btb / 20.82
+gen or_m_reel2_12 = tx_btb / 23.30
+gen or_m_reel2_13 = tx_btb / 27.19
+gen or_m_reel2_14 = tx_btb / 26.83
+gen or_s_reel2_97 = psucc / 75.65
+gen or_s_reel2_98 = psucc / 78.27
+gen or_s_reel2_99 = psucc / 77.60
+gen or_s_reel2_00 = psucc / 79.12
+gen or_s_reel2_01 = psucc / 78.44
+gen or_s_reel2_02 = psucc / 79.19
+gen or_s_reel2_03 = psucc / 82.78
+gen or_s_reel2_04 = psucc / 81.36
+gen or_s_reel2_05 = psucc / 82.99
+gen or_s_reel2_06 = psucc / 85.37
+gen or_s_reel2_07 = psucc / 86.62
+gen or_s_reel2_08 = psucc / 86.76
+gen or_s_reel2_09 = psucc / 87.76
+gen or_s_reel2_10 = psucc / 85.87
+gen or_s_reel2_11 = psucc / 86.85
+gen or_s_reel2_12 = psucc / 88.36
+gen or_s_reel2_13 = psucc / 90.73
+gen or_s_reel2_14 = psucc / 89.63
+sc or_m_reel2_14 or_m_reel2_14 if session == 2014 [w=tot_inscrits], ms(oh) msize(tiny)
+sc or_m_reel2_14 or_s_reel2_14 if session == 2014 [w=tot_inscrits], ms(oh) msize(tiny)
+save "/home/me/MARCO/mb4.dta", replace
+merge m:m com using "/home/me/inseecom.dta"
+list com if _merge==1
+save "/home/me/MARCO/mb4.dta", replace
+tab codergion
+sc or_m_reel2_14 or_s_reel2_14 if session == 2014 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny)
+sc or_m_reel2_14 or_s_reel2_14 if session == 2014 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) mlabel(com)
+sc or_m_reel2_14 or_s_reel2_14 if session == 2014 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) mlabel(nomdelacommune)
+sc or_m_theo_14  or_s_theo_14 if session == 2014 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) mlabel(nomdelacommune)
+drop or_m_theo_97-or_m_theo_14
+gen or_m_theo_97 = mention_theo / 8.38
+gen or_m_theo_98 = mention_theo / 9.00
+gen or_m_theo_99 = mention_theo / 9.15
+gen or_m_theo_00 = mention_theo / 9.36
+gen or_m_theo_01 = mention_theo / 9.12
+gen or_m_theo_02 = mention_theo / 9.63
+gen or_m_theo_03 = mention_theo / 12.71
+gen or_m_theo_04 = mention_theo / 13.26
+gen or_m_theo_05 = mention_theo / 13.50
+gen or_m_theo_06 = mention_theo / 17.25
+gen or_m_theo_07 = mention_theo / 19.06
+gen or_m_theo_08 = mention_theo / 20.93
+gen or_m_theo_09 = mention_theo / 21.88
+gen or_m_theo_10 = mention_theo / 19.87
+gen or_m_theo_11 = mention_theo / 20.93
+gen or_m_theo_12 = mention_theo / 23.58
+gen or_m_theo_13 = mention_theo / 27.58
+gen or_m_theo_14 = mention_theo / 27.13
+sc or_m_theo_14  or_s_theo_14 if session == 2014 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) mlabel(nomdelacommune)
+save "/home/me/MARCO/mb4.dta", replace
+list patronyme nomdelacommune codedpartement
+tab _merge
+drop if _merge==2
+list patronyme nomdelacommune codedpartement
+list patronyme nomdelacommune codedpartement psucc succes_theo or_s_theo_14 tx_btb mention_theo or_m_theo_14
+list patronyme nomdelacommune codedpartement psucc succes_theo or_s_theo_14 tx_btb mention_theo or_m_theo_14 if session==2014
+list patronyme nomdelacommune codedpartement psucc succes_theo or_s_theo_14 tx_btb mention_theo or_m_theo_14 if session==2014 & codergion=="11"
+list patronyme nomdelacommune codedpartement psucc succes_theo or_s_theo_14 tx_btb mention_theo or_m_theo_14 if session==2014 & codergion=="11", noo clean
+list patronyme cep2 if session==2014 & codergion=="11"
+list patronyme cep2 if session==2014 & codergion=="11", noo clean
+save "/home/me/MARCO/mb4.dta", replace
+clear
+edit
+clear
+edit
+sc ormention orsuccs
+sc ormention orsuccs, by(depa)
+sc ormention orsuccs, ms(oh) by(depa)
+clear
+use "/home/me/MARCO/mb4.dta", replace
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits]
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11"
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11", ms(oh) msize(tiny)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11", ms(oh) msize(tiny) by(depa)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11", ms(oh) msize(tiny) by(depa)
+help egen
+help gen
+help log
+help ln
+gen log_or_m_reel2_14 =  or_m_reel2_14 
+gen log_or_s_reel2_14 =  or_s_reel2_14 
+sc log_or_m_reel2_14 log_or_s_reel2_14[w=tot_inscrits] if session ==2014 & codergion=="11", ms(oh) msize(tiny) by(depa)
+drop log_or_m_reel2_14 log_or_s_reel2_14
+gen log_or_m_reel2_14 =  log(or_m_reel2_14)
+gen log_or_s_reel2_14 = log(  or_s_reel2_14 )
+sc log_or_m_reel2_14 log_or_s_reel2_14[w=tot_inscrits] if session ==2014 & codergion=="11", ms(oh) msize(tiny) by(depa)
+gen inv_or_m_reel2_14 =  1/ or_m_reel2_14
+gen inv_or_s_reel2_14 = 1 /  or_s_reel2_14 
+sc inv_or_m_reel2_14 inv_or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11", ms(oh) msize(tiny) by(depa)
+help scale
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11", ms(oh) msize(tiny) by(depa) xscale(log) yscale(log)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0  , ms(oh) msize(tiny) by(depa) xscale(log) yscale(log)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0  , ms(oh) msize(tiny) by(depa) xscale(log) yscale(log) xline(1) yline(1)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0  , ms(oh) msize(tiny) by(depa) xscale(log) yscale(log) xline(1) yline(1)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==93 , ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==93 , ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) mlabel(patronyme)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==93 , ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) mlabel(patronyme)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==93 , ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) mlabel(patronyme)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==93 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1) mlabel(patronyme)
+sc or_m_reel2_14 or_s_reel2_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1) mlabel(patronyme)
+tab numetab
+sc or_m_theo_14 or_s_theo_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1) mlabel(patronyme)
+sc or_m_theo_14 or_s_theo_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==93 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1) mlabel(patronyme)
+twoway pcarrow or_m_reel2_14 or_m_theo_14 or_s_reel2_14 or_s_theo_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==93 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1) mlabel(patronyme)
+twoway pcarrow or_m_reel2_14 or_m_theo_14 or_s_reel2_14 or_s_theo_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1) mlabel(patronyme)
+sc or_m_reel2_14 or_s_reel2_14  [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1)  || sc or_m_theo_14 or_s_theo_14  [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1)  color(blue)
+sc or_m_reel2_14 or_s_reel2_14  [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1)  || sc or_m_theo_14 or_s_theo_14  [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1)  color(blue) ||  pcarrow or_m_reel2_14 or_m_theo_14 or_s_reel2_14 or_s_theo_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1) 
+sc or_m_reel2_14 or_s_reel2_14  [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1)  || sc or_m_theo_14 or_s_theo_14  [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1)  color(blue) ||  pcarrow or_m_reel2_14 or_m_theo_14 or_s_reel2_14 or_s_theo_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1) 
+sc or_m_reel2_14 or_s_reel2_14  [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1)  || sc or_m_theo_14 or_s_theo_14  [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1)  color(blue) ||  pcarrow or_m_reel2_14 or_s_reel2_14  or_m_theo_14 or_s_theo_14 [w=tot_inscrits] if session ==2014 & codergion=="11" & or_m_reel2_14 !=0 & or_s_reel2_14 !=0 & depa==75 , ms(oh) msize(tiny) yscale(log)  xscale(log) xline(1) yline(1) 
