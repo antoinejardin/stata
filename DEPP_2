@@ -1,0 +1,138 @@
+use "/home/me/MARCO/mb4.dta"
+replace or_m_theo = or_m_theo_97 if session == 1997
+replace or_m_theo = or_m_theo_98 if session == 1998
+replace or_m_theo = or_m_theo_99 if session == 1999
+replace or_m_theo = or_m_theo_00 if session == 2000
+replace or_m_theo = or_m_theo_01 if session == 2001
+replace or_m_theo = or_m_theo_02 if session == 2002
+replace or_m_theo = or_m_theo_03 if session == 2003
+replace or_m_theo = or_m_theo_04 if session == 2004
+replace or_m_theo = or_m_theo_05 if session == 2005
+replace or_m_theo = or_m_theo_06 if session == 2006
+replace or_m_theo = or_m_theo_07 if session == 2007
+replace or_m_theo = or_m_theo_08 if session == 2008
+replace or_m_theo = or_m_theo_09 if session == 2009
+replace or_m_theo = or_m_theo_10 if session == 2010
+replace or_m_theo = or_m_theo_11 if session == 2011
+replace or_m_theo = or_m_theo_12 if session == 2012
+replace or_m_theo = or_m_theo_13 if session == 2013
+replace or_m_theo = or_m_theo_14 if session == 2014
+replace or_s_theo = or_s_theo_97 if session == 1997
+replace or_s_theo = or_s_theo_98 if session == 1998
+replace or_s_theo = or_s_theo_99 if session == 1999
+replace or_s_theo = or_s_theo_00 if session == 2000
+replace or_s_theo = or_s_theo_01 if session == 2001
+replace or_s_theo = or_s_theo_02 if session == 2002
+replace or_s_theo = or_s_theo_03 if session == 2003
+replace or_s_theo = or_s_theo_04 if session == 2004
+replace or_s_theo = or_s_theo_05 if session == 2005
+replace or_s_theo = or_s_theo_06 if session == 2006
+replace or_s_theo = or_s_theo_07 if session == 2007
+replace or_s_theo = or_s_theo_08 if session == 2008
+replace or_s_theo = or_s_theo_09 if session == 2009
+replace or_s_theo = or_s_theo_10 if session == 2010
+replace or_s_theo = or_s_theo_11 if session == 2011
+replace or_s_theo = or_s_theo_12 if session == 2012
+replace or_s_theo = or_s_theo_13 if session == 2013
+replace or_s_theo = or_s_theo_14 if session == 2014
+replace or_m_reel = or_m_reel2_97 if session == 1997
+replace or_m_reel = or_m_reel2_98 if session == 1998
+replace or_m_reel = or_m_reel2_99 if session == 1999
+replace or_m_reel = or_m_reel2_00 if session == 2000
+replace or_m_reel = or_m_reel2_01 if session == 2001
+replace or_m_reel = or_m_reel2_02 if session == 2002
+replace or_m_reel = or_m_reel2_03 if session == 2003
+replace or_m_reel = or_m_reel2_04 if session == 2004
+replace or_m_reel = or_m_reel2_05 if session == 2005
+replace or_m_reel = or_m_reel2_06 if session == 2006
+replace or_m_reel = or_m_reel2_07 if session == 2007
+replace or_m_reel = or_m_reel2_08 if session == 2008
+replace or_m_reel = or_m_reel2_09 if session == 2009
+replace or_m_reel = or_m_reel2_10 if session == 2010
+replace or_m_reel = or_m_reel2_11 if session == 2011
+replace or_m_reel = or_m_reel2_12 if session == 2012
+replace or_m_reel = or_m_reel2_13 if session == 2013
+replace or_m_reel = or_m_reel2_14 if session == 2014
+replace or_s_reel = or_s_reel2_97 if session == 1997
+replace or_s_reel = or_s_reel2_98 if session == 1998
+replace or_s_reel = or_s_reel2_99 if session == 1999
+replace or_s_reel = or_s_reel2_00 if session == 2000
+replace or_s_reel = or_s_reel2_01 if session == 2001
+replace or_s_reel = or_s_reel2_02 if session == 2002
+replace or_s_reel = or_s_reel2_03 if session == 2003
+replace or_s_reel = or_s_reel2_04 if session == 2004
+replace or_s_reel = or_s_reel2_05 if session == 2005
+replace or_s_reel = or_s_reel2_06 if session == 2006
+replace or_s_reel = or_s_reel2_07 if session == 2007
+replace or_s_reel = or_s_reel2_08 if session == 2008
+replace or_s_reel = or_s_reel2_09 if session == 2009
+replace or_s_reel = or_s_reel2_10 if session == 2010
+replace or_s_reel = or_s_reel2_11 if session == 2011
+replace or_s_reel = or_s_reel2_12 if session == 2012
+replace or_s_reel = or_s_reel2_13 if session == 2013
+replace or_s_reel = or_s_reel2_14 if session == 2014
+save "/home/me/MARCO/mb4.dta", replace
+sc or_m_reel or_s_reel if valid==1 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) by(session)
+sc or_m_reel or_s_reel if valid==1 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) by(session)
+sc or_m_reel or_s_reel if valid==1 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) by(session) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) by(session) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) by(session) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & session == "2002"[w=tot_inscrits], ms(oh) msize(tiny) by(cep2) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) by(cep2) xscale(log) yscale(log) 
+help marker
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) by(cep2) xscale(log) yscale(log)  || 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  || sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  || sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(sh) msize(tiny) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  || sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(sh) msize(small) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  || sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(h) msize(small) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  || sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(S) msize(small) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  || sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log) 
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  || sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)  color(red)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)  color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2006 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2006 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)  color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2010 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2010 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)  color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2014 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)  color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2014 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)  color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yxline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yxline(1) color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2006 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2006 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2010 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2010 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2014 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2014 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue), save(a02)
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2002 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2002 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue)
+graph save Graph "/home/me/MARCO/a02.gph"
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2006 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2006 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue)
+graph save Graph "/home/me/MARCO/a06.gph"
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2010 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2010 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue)
+graph save Graph "/home/me/MARCO/a10.gph"
+sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==0 & session == 2014 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) color(red)|| sc or_m_reel or_s_reel if or_m_reel!=0 & or_s_reel!=0 & valid==1 & codergion=="11" & cep2==1 & session == 2014 [w=tot_inscrits], ms(s) msize(small) xscale(log) yscale(log)   xline(1) yline(1) color(blue)
+graph save Graph "/home/me/MARCO/a14.gph"
+graph combine "/home/me/MARCO/a14.gph" "/home/me/MARCO/a10.gph" "/home/me/MARCO/a06.gph" "/home/me/MARCO/a02.gph", ycommon xcommon
+graph combine "/home/me/MARCO/a02.gph" "/home/me/MARCO/a06.gph" "/home/me/MARCO/a10.gph" "/home/me/MARCO/a14.gph", ycommon xcommon
+list patronyme depa nomdelacommune psucc or_s_reel or_s_theo tx_btb or_m_reel or_m_theo session if valid==1 & codergion=="11" & cep2 == 1
+list patronyme depa nomdelacommune psucc or_s_reel or_s_theo tx_btb or_m_reel or_m_theo session if valid==1 & codergion=="11" & cep2 == 1, noo clean
+list patronyme depa nomdelacommune psucc or_s_reel or_s_theo tx_btb or_m_reel or_m_theo session cep if valid==1 & codergion=="11" , noo clean
+log using "/home/me/MARCO/log_or_idf.log"
+list patronyme depa nomdelacommune psucc or_s_reel or_s_theo tx_btb or_m_reel or_m_theo session cep if valid==1 & codergion=="11" , noo clean
+log close
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11"
+sc or_m_reel or_s_reel or_m_theo or_s_theo if valid == 1 & codergion =="11"
+twoway pcarrow or_m_reel or_s_reel or_m_theo or_s_theo if valid == 1 & codergion =="11"
+twoway pcarrow or_m_reel or_s_reel or_m_theo or_s_theo if valid == 1 & codergion =="11", by(session)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11"
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & session == 2000 || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & session == 2000
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & session == 2000 [w=tot_inscrits] , ms(oh) msize(tiny)|| sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & session == 2000  [w=tot_inscrits] , ms(oh) msize(tiny)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & session == 2000 [w=tot_inscrits] , ms(oh) msize(tiny) color(blue)|| sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & session == 2000  [w=tot_inscrits] , ms(oh) msize(tiny)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & session == 2000 [w=tot_inscrits] , ms(oh) msize(tiny) color(blue)|| sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & session == 2000  [w=tot_inscrits] , ms(oh) msize(tiny) color(red)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" [w=tot_inscrits] , ms(oh) msize(tiny) color(blue)|| sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" [w=tot_inscrits] , ms(oh) msize(tiny) color(red) by(session)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" [w=tot_inscrits] , ms(oh) msize(tiny) color(blue)|| sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" [w=tot_inscrits] , ms(oh) msize(tiny) color(red) by(session)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" [w=tot_inscrits] , ms(oh) msize(tiny) color(blue) xscale(log) yscale(log) xline(1) yline(1)|| sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" [w=tot_inscrits] , ms(oh) msize(tiny) color(red) by(session)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(blue) xscale(log) yscale(log) xline(1) yline(1)|| sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" [w=tot_inscrits] , ms(oh) msize(tiny) color(red) by(session)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(blue) xscale(log) yscale(log) xline(1) yline(1) || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(red) by(session)  xscale(log) yscale(log) xline(1) yline(1)|
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(blue) xscale(log) yscale(log) xline(1) yline(1) || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(red) by(session)  xscale(log) yscale(log) xline(1) yline(1)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(ltblue) xscale(log) yscale(log) xline(1) yline(1) || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(red) by(session)  xscale(log) yscale(log) xline(1) yline(1)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(ltblue) xscale(log) yscale(log) xline(1) yline(1) || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oht) msize(tiny) color(black) by(session)  xscale(log) yscale(log) xline(1) yline(1)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(ltblue) xscale(log) yscale(log) xline(1) yline(1) || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(ot) msize(tiny) color(black) by(session)  xscale(log) yscale(log) xline(1) yline(1)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(ltblue) xscale(log) yscale(log) xline(1) yline(1) || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(os) msize(tiny) color(black) by(session)  xscale(log) yscale(log) xline(1) yline(1)
+sc or_m_reel or_s_reel if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(oh) msize(tiny) color(ltblue) xscale(log) yscale(log) xline(1) yline(1) || sc or_m_theo or_s_theo  if valid == 1 & codergion =="11" & or_m_reel != 0 & or_s_reel != 0  [w=tot_inscrits] , ms(sh) msize(tiny) color(black) by(session)  xscale(log) yscale(log) xline(1) yline(1)
