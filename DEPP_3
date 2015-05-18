@@ -1,0 +1,67 @@
+
+use "/home/me/MARCO/mb4.dta"
+gen drt_s = psucc - succes_theo
+gen drt_m = tx_btb - mention_theo
+save "/home/me/MARCO/mb4.dta", replace
+gen ort_s = psucc / succes_theo
+gen ort_m = tx_btb / mention_theo
+save "/home/me/MARCO/mb4.dta", replace
+sc drt_m drt_s if valid==1 & depa==93 [w=tot_inscrits], ms(oh) msize(tiny)
+sc drt_m drt_s if valid==1 & depa==93 & cep2 == 1 [w=tot_inscrits], ms(oh) msize(tiny) by(session)
+sc drt_m drt_s if valid==1 & depa==93 & cep2 == 1 [w=tot_inscrits], ms(oh) msize(small) by(session) xline(0) yline(0)
+sc drt_m drt_s if valid==1 & depa==93 & cep2 == 0 [w=tot_inscrits], ms(oh) msize(small) by(session) xline(0) yline(0)
+twoway pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny)
+twoway pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) ||sc  tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny)
+twoway pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) ||sc  tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny)
+sc  tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) || twoway pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) 
+sc  tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) ||  pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) 
+ pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) 
+ twoway pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) 
+sc  tx_btb psucc  [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) ||  pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) 
+sc  tx_btb psucc  [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny)  color(red)||  pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) 
+sc  tx_btb psucc  [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny)  color(red)||  pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & tx_btb > mention_theo, ms(oh) msize(tiny) 
+sc  tx_btb psucc  [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny)  color(red) ||  pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & tx_btb > mention_theo, ms(oh) msize(tiny) || pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & tx_btb <= mention_theo, ms(oh) msize(tiny) 
+help mixed
+melogit pcs8 sexe
+melogit pcs8 sexe
+ twoway pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) 
+sc  tx_btb psucc  [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny)  color(red) ||  pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & tx_btb > mention_theo, ms(oh) msize(tiny) || pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & tx_btb <= mention_theo, ms(oh) msize(tiny) 
+sc  drt_m tx_btb [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue) ||sc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny)  color(red) ||  pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & tx_btb > mention_theo, ms(oh) msize(tiny) || pcarrow tx_btb psucc mention_theo succes_theo [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & tx_btb <= mention_theo, ms(oh) msize(tiny) 
+sc  tx_btb psucc  [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue) 
+sc drt_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue) 
+sc drt_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue)  yline(0)
+sc drt_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue)  yline(0) 
+help dropline
+twoway dropline drt_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014, ms(oh) msize(tiny) color(blue)  yline(0) 
+twoway dropline drt_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & dtr_m>0, ms(oh) msize(tiny) color(blue)  yline(0) 
+twoway dropline drt_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m>0, ms(oh) msize(tiny) color(blue)  yline(0) 
+twoway dropline drt_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m>0, ms(oh) msize(tiny) color(blue)  yline(0)  || dropline drt_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m<=0, ms(oh) msize(tiny) color(red)  yline(0)  
+twoway dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m>0, ms(oh) msize(tiny) color(blue)  yline(0)  || dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m<=0, ms(oh) msize(tiny) color(red)  yline(0)  
+help or
+help dropline
+twoway dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m>0, ms(oh) msize(tiny) color(blue)  base(1)  || dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m<=0, ms(oh) msize(tiny) color(red)  yline(0)  
+twoway dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m>0, ms(oh) msize(tiny) color(blue)  base(1)  || dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m<=0, ms(oh) msize(tiny) color(red)  base(1)
+twoway dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m>0, ms(oh) msize(tiny) color(blue)  base(1) yscale(log) || dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m<=0, ms(oh) msize(tiny) color(red)  base(1) yscale(log)
+twoway dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m>0 & ort_m != 0, ms(oh) msize(tiny) color(blue)  base(1) yscale(log) || dropline ort_m  tx_btb   [w=tot_inscrits] if valid==1 & cep2==1 & session==2014 & drt_m<=0 & ort_m != 0, ms(oh) msize(tiny) color(red)  base(1) yscale(log)
+sc drt_s ort_s
+sc drt_m drt_s
+sc drt_m drt_s [w=tot_inscrits], ms(oh) msize(tiny) xscale(0) yscale(0)
+sc drt_m drt_s [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc drt_m drt_s if drt_m != 0 & drt_s != 0 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc drt_m drt_s if drt_m != 0 & drt_s != 0 & dtr_m < 100 & dtr_s < 100 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc drt_m drt_s if drt_m != 0 & drt_s != 0 & drt_m < 100 & dtr_s < 100 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc drt_m drt_s if drt_m != 0 & drt_s != 0 & drt_m < 100 & drt_s < 100 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc drt_m drt_s if drt_m != 0 & drt_s != 0 & drt_m < 100 & drt_s < 100 & valid==1 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc drt_m drt_s if drt_m != 0 & drt_s != 0 & drt_m < 100 & drt_s < 100 & valid==1 & depa==93 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc ort_s ort_m valid==1 & depa==93 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc ort_s ort_m if valid==1 & depa==93 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc ort_s ort_m if valid==1 & depa==93 & ort_s != 0 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc ort_s ort_m if valid==1 & depa==93 & ort_s != 0   & ort_m != 0[w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc ort_s ort_m if valid==1 & depa==93 & ort_s != 0   & ort_m != 0 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc  ort_m ort_s if valid==1 & depa==93 & ort_s != 0   & ort_m != 0 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log
+sc  ort_m ort_s if valid==1 & depa==93 & ort_s != 0   & ort_m != 0 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log)
+sc  ort_m ort_s if valid==1 & depa==93 & ort_s != 0   & ort_m != 0 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1)
+sc  ort_m ort_s if valid==1 & depa==93 & ort_s != 0   & ort_m != 0 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) by(session)
+sc  ort_m ort_s if valid==1 & codergion=="11" & ort_s != 0   & ort_m != 0 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) by(session)
+sc  ort_m ort_s if valid==1 & codergion=="11" & ort_s != 0 & ort_m != 0 & session==2014 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) 
+sc  ort_m ort_s if valid==1 & codergion=="11" & ort_s != 0 & ort_m != 0 & session==2014 [w=tot_inscrits], ms(oh) msize(tiny) xscale(log) yscale(log) xline(1) yline(1) by(depa)
