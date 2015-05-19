@@ -1,0 +1,61 @@
+collapse mean psucc tx_btb drt_s drt_m ort_s ort_m, by(cep2 session)
+collapse (mean) psucc tx_btb drt_s drt_m ort_s ort_m, by(cep2 session)
+sc drt_s session
+twoway line drt_s session , by(cep2)
+twoway line drt_sm session , by(cep2)
+twoway line drt_m session , by(cep2)
+save "/home/me/MARCO/temp.dta"
+twoway connected drt_s session if cep2 == 0 ||  connected drt_s session if cep2 == 1
+twoway connected drt_s session if cep2 == 0 ||  connected drt_s session if cep2 == 1, xline(0)
+twoway connected drt_s session if cep2 == 0 ||  connected drt_s session if cep2 == 1, yline(0)
+twoway connected drt_s session if cep2 == 0, color(red) ||  connected drt_s session if cep2 == 1, yline(0) color(blue) 
+use "/home/me/MARCO/mb4.dta"
+collapse (mean) psucc tx_btb drt_s drt_m ort_s ort_m [w=tot_inscrits] if valid==1, by(cep2 session)
+twoway connected drt_s session if cep2 == 0, color(red) ||  connected drt_s session if cep2 == 1, yline(0) color(blue) 
+twoway connected drt_m session if cep2 == 0, color(red) ||  connected drt_m session if cep2 == 1, yline(0) color(blue) 
+twoway connected ort_m session if cep2 == 0, color(red) yscale(log) ||  connected ort_m session if cep2 == 1, yline(1) color(blue)  yscale(log)
+twoway connected ort_s session if cep2 == 0, color(red) yscale(log) ||  connected ort_s session if cep2 == 1, yline(1) color(blue)  yscale(log)
+graph combine "/home/me/MARCO/or_mpred.gph" "/home/me/MARCO/or_spred.gph", ycommon xcommon
+save "/home/me/MARCO/temp.dta", replace
+clear
+use "/home/me/MARCO/mb4.dta"
+twoway connected ort_m ort_s if cep==0 & valid==1
+use "/home/me/MARCO/temp.dta", replace
+twoway connected ort_m ort_s if cep==0 & valid==1
+twoway connected ort_m ort_s if cep==0 
+twoway connected ort_m ort_s if cep==0 || connected ort_m ort_s if cep==1
+twoway connected ort_m ort_s if cep==0 || connected ort_m ort_s if cep==1, mlabel(session)
+twoway connected ort_m ort_s if cep==0, color(red) xscale(log) yscale(log) || connected ort_m ort_s if cep==1, mlabel(session) color(blue) xscale(log) yscale(log)
+sc ort_m ort_s
+sc ort_m ort_s, mlabel(session)
+use "/home/me/MARCO/mb4.dta"
+collapse (mean) psucc tx_btb drt_s drt_m ort_s ort_m psucc tx_btb [w=tot_inscrits] if valid==1, by(cep2 session)
+collapse (mean) psucc tx_btb drt_s drt_m ort_s ort_m [w=tot_inscrits] if valid==1, by(cep2 session)
+sc ort_m tx_btb
+sort session
+twoway connected ort_m tx_btb
+twoway connected ort_m tx_btb, by(cep2)
+twoway connected ort_m tx_btb, by(cep2) yscale(log)
+twoway connected ort_m tx_btb, by(cep2) yscale(log)
+twoway connected ort_s psucc, by(cep2) yscale(log)
+twoway connected drt_s psucc, by(cep2) yscale(log)
+twoway connected drt_s psucc, by(cep2) 
+use "/home/me/MARCO/mb4.dta"
+clear
+use "/home/me/MARCO/mb4.dta"
+sc drt_m tx_btb if session == 2014 & valid==1 & codergion=="11"
+sc drt_m tx_btb if session == 2014 & valid==1 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) by(cep2)
+sc ort_m tx_btb if session == 2014 & valid==1 & codergion=="11" [w=tot_inscrits], ms(oh) msize(tiny) by(cep2) yline(1) yscale(log)
+sc ort_m tx_btb if session == 2014 & valid==1 & codergion=="11" & ort_m != 0[w=tot_inscrits], ms(oh) msize(tiny) by(cep2) yline(1) yscale(log)
+sc ort_m tx_btb if session == 2014 & valid==1 & codergion=="11" & ort_m != 0 [w=tot_inscrits], ms(oh) msize(tiny) by(cep2) yline(1) yscale(log)
+sc ort_s psucc if session == 2014 & valid==1 & codergion=="11" & ort_s != 0 [w=tot_inscrits], ms(oh) msize(tiny) by(cep2) yline(1) yscale(log)
+graph combine "/home/me/MARCO/TOS_IDF_2014.gph" "/home/me/MARCO/TOM_IDF_2014.gph", ycommon xcommon
+graph combine "/home/me/MARCO/TOS_IDF_2014.gph" "/home/me/MARCO/TOM_IDF_2014.gph", ycommon xcommon
+list patronyme nomdelacommune depa if ession == 2014 & valid==1 & codergion=="11" & ort_s > 1
+list patronyme nomdelacommune depa if session == 2014 & valid==1 & codergion=="11" & ort_s > 1
+list patronyme nomdelacommune depa if session == 2014 & valid==1 & codergion=="11" & ort_s > 1 & cep2==1
+list patronyme nomdelacommune depa ort_s drt_s if session == 2014 & valid==1 & codergion=="11" & ort_s > 1 & cep2==1
+list patronyme nomdelacommune depa ort_s drt_s if session == 2014 & valid==1 & codergion=="11" & ort_s > 1 & cep2==1, noo clean
+sort drt_s
+list patronyme nomdelacommune depa ort_s drt_s if session == 2014 & valid==1 & codergion=="11" & ort_s > 1 & cep2==1, noo clean
+list patronyme nomdelacommune depa ort_m drt_m if session == 2014 & valid==1 & codergion=="11" & ort_m > 1 & cep2==1, noo clean
